@@ -37,7 +37,7 @@
 					<label align="left">Sala</label>	<br>
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
-							<select name="codigo" required="">
+							<select required="" id="codigo">
 								<option value="">Selecione o código da sala</option>
 								<option value="l">Sala 01</option>
 								<option value="10">Sala 02</option>
@@ -47,7 +47,7 @@
 								<option value="18">Sala 06</option>
 							 </select>
 						</div>
-						<div class="col-6 col-12-mobilep">
+						<!--<div class="col-6 col-12-mobilep">
 							<select name="tipo" required="">
 								<option value="">Selecione o código da sala</option>
 								<option value="">comum</option>
@@ -104,10 +104,10 @@
 							<label align="left" for="myfile" required="">Clique aqui para selecionar arquivo do cartaz</label>
 								  <input type="file" id="myfile" name="file" accept="image/*" required="required" ><br><br>
 							</div>
-				
+						-->
 						<div class="col-12">
 							<ul class="actions special">
-								<li><input type="submit" value="CADASTRAR" /></li>
+								<button type='button' onclick="getValues()">Cadastrar</button>
 							</ul>
 						</div>
 					</div>
@@ -127,7 +127,9 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/comboBox.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="assets/js/http.js"></script>
+	
 
 </body>
 
