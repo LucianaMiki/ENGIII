@@ -1,37 +1,37 @@
-package DAO;
+package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 import Dominio.EntidadeDominio;
-import Dominio.Sala;
+import Dominio.Sessao;
 
-public class SalaDAO extends AbstractJdbcDAO {
+public class SessaoDAO extends AbstractJdbcDAO {
 
-    public SalaDAO() {
-        super("sala", "id_sal");
+    public SessaoDAO() {
+        super("sessao", "id_ses");
     }
 
     public void Inserir(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Sessao ses = (Sessao) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("INSERT INTO sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) VALUES (?, ?, ?, ?)");
+            sql.append("INSERT INTO sessao (id_ses, id_fxE_ses, id_fil, vm, vi, dti, dtf) VALUES (?, ?, ?, ?)");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
+            pst.setInt(1, ses.getId());
+            pst.setInt(2, ses.getId());
+            pst.setInt(3, ses.getId());
+            pst.setFloat(4, ses.getValor_meia());
+            pst.setFloat(5, ses.getValor_inteira());
+            pst.setDate(6, ses.getDt_incio());
+            pst.setDate(7, ses.getDt_fim());
 
-            Timestamp time = new Timestamp(sala.getDtCadastro().getTime());
-            pst.setTimestamp(3, time);
             pst.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
@@ -52,20 +52,23 @@ public class SalaDAO extends AbstractJdbcDAO {
     public void Alterar(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Sessao ses = (Sessao) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("UPDATE sala SET id_cd_sal=?, id_tp_sal=?, id_cap_sal=?");
-            sql.append("WHERE id_sal=?");
+            sql.append("UPDATE sessao SET id_fxE_ses=?, id_fil=?, vm=?, vi=?, dti=?, dtf=?");
+            sql.append("WHERE id_ses=?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getCodigo());
-            pst.setInt(2, sala.getTipo());
-            pst.setInt(3, sala.getCapacidade());
-            pst.setInt(4, sala.getId());
+            pst.setInt(1, ses.getId());
+            pst.setInt(2, ses.getId());
+            pst.setFloat(3, ses.getValor_meia());
+            pst.setFloat(4, ses.getValor_inteira());
+            pst.setDate(5, ses.getDt_incio());
+            pst.setDate(6, ses.getDt_fim());
+            pst.setInt(7, ses.getId());
 
             pst.executeUpdate();
             connection.commit();
@@ -92,19 +95,24 @@ public class SalaDAO extends AbstractJdbcDAO {
     public List<EntidadeDominio> Consultar(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Sessao ses = (Sessao) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT FROM sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) WHERE ?");
+            sql.append("SELECT FROM sessao (id_ses, id_fxE_ses, id_fil, vm, vi, dti, dtf) WHERE ?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
+            pst.setInt(1, ses.getId());
+            pst.setInt(2, ses.getId());
+            pst.setInt(3, ses.getId());
+            pst.setFloat(4, ses.getValor_meia());
+            pst.setFloat(5, ses.getValor_inteira());
+            pst.setDate(6, ses.getDt_incio());
+            pst.setDate(7, ses.getDt_fim());
+            
+             
             pst.executeUpdate();
             connection.commit();
         } catch (SQLException e) {

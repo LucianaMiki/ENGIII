@@ -1,37 +1,36 @@
-package DAO;
+package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
 import Dominio.EntidadeDominio;
-import Dominio.Sala;
+import Dominio.Filme;
+import java.sql.Date;
 
-public class SalaDAO extends AbstractJdbcDAO {
-
-    public SalaDAO() {
-        super("sala", "id_sal");
+public class FilmeDAO extends AbstractJdbcDAO{
+ public FilmeDAO() {
+        super("filme", "id_fil");
     }
 
     public void Inserir(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Filme fil = (Filme) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("INSERT INTO sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) VALUES (?, ?, ?, ?)");
+            sql.append("INSERT INTO filme (id_fil, til, es, du, dire, elenco, si) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
-
-            Timestamp time = new Timestamp(sala.getDtCadastro().getTime());
-            pst.setTimestamp(3, time);
+            pst.setInt(1, fil.getId());
+            pst.setString(2, fil.getTitulo());
+            pst.setDate(3, (Date) fil.getEstreia());
+            pst.setDate(4, (Date) fil.getDuracao());
+            pst.setString(5, fil.getDiretor());
+            pst.setString(6, fil.getElenco());
+            pst.setString(7, fil.getSinopse());
             pst.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
@@ -52,21 +51,24 @@ public class SalaDAO extends AbstractJdbcDAO {
     public void Alterar(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Filme fil = (Filme) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("UPDATE sala SET id_cd_sal=?, id_tp_sal=?, id_cap_sal=?");
-            sql.append("WHERE id_sal=?");
+            sql.append("UPDATE filme SET til=?, es=?, du=?, dire=?, elenco=?, si=?");
+            sql.append("WHERE id_fil=?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getCodigo());
-            pst.setInt(2, sala.getTipo());
-            pst.setInt(3, sala.getCapacidade());
-            pst.setInt(4, sala.getId());
-
+            pst.setString(1, fil.getTitulo());
+            pst.setDate(2, (Date) fil.getEstreia());
+            pst.setDate(3, (Date) fil.getDuracao());
+            pst.setString(4, fil.getDiretor());
+            pst.setString(5, fil.getElenco());
+            pst.setString(6, fil.getSinopse());
+            pst.setInt(7, fil.getId());
+            
             pst.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
@@ -92,19 +94,22 @@ public class SalaDAO extends AbstractJdbcDAO {
     public List<EntidadeDominio> Consultar(EntidadeDominio entidade) {
         openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
+        Filme fil = (Filme) entidade;
 
         try {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT FROM sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) WHERE ?");
+            sql.append("SELECT FROM filme (id_fil, til, es, du, dire, elenco, si) WHERE ?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
+            pst.setInt(1, fil.getId());
+            pst.setString(2, fil.getTitulo());
+            pst.setDate(3, (Date) fil.getEstreia());
+            pst.setDate(4, (Date) fil.getDuracao());
+            pst.setString(5, fil.getDiretor());
+            pst.setString(6, fil.getElenco());
+            pst.setString(7, fil.getSinopse());
             pst.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
@@ -121,4 +126,6 @@ public class SalaDAO extends AbstractJdbcDAO {
         }
         return null;
     }
+
+    
 }
