@@ -1,4 +1,4 @@
-/*package Dominio;
+package Dominio;
 
 public class Sala extends EntidadeDominio{
 
@@ -41,4 +41,4 @@ public class Sala extends EntidadeDominio{
         this.Capacidade = Capacidade;
     }
 
-}*/
+}

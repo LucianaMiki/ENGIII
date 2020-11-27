@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -87,7 +87,7 @@ public class FilmeDAO extends AbstractJdbcDAO{
     }
 
     @Override
-    public void Excluir(EntidadeDominio entidade) {
+    public void excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -126,6 +126,18 @@ public class FilmeDAO extends AbstractJdbcDAO{
         }
         return null;
     }
+
+	@Override
+	public void salvar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
 
     
 }

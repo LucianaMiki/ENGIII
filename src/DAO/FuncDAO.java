@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import Dominio.EntidadeDominio;
 import Dominio.Func;
@@ -53,7 +53,7 @@ public class FuncDAO extends AbstractJdbcDAO {
     }
 
     @Override
-    public void Alterar(EntidadeDominio entidade) {
+    public void alterar(EntidadeDominio entidade) {
 
         PreparedStatement pst = null;
         Func func = (Func) entidade;
@@ -79,7 +79,7 @@ public class FuncDAO extends AbstractJdbcDAO {
     }
 
     @Override
-    public void Excluir(EntidadeDominio entidade) {
+    public void excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -115,4 +115,10 @@ public class FuncDAO extends AbstractJdbcDAO {
         }
         return null;
     }
+
+	@Override
+	public void salvar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
 }

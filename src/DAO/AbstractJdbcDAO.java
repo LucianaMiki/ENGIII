@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,7 +24,7 @@ public abstract class AbstractJdbcDAO implements IDAO{
 		this.idTable = idTable;
 	}
 	@Override
-	public void Excluir(EntidadeDominio entidade) {		
+	public void excluir(EntidadeDominio entidade) {	
 		openConnection();
 		PreparedStatement pst=null;		
 		StringBuilder sb = new StringBuilder();

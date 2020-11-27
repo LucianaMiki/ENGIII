@@ -1,10 +1,10 @@
-/*package Command;
+package Command;
 
-import src.Dominio.EntidadeDominio;
-import src.Dominio.Resultado;
+import Dominio.EntidadeDominio;
+import Dominio.Resultado;
 
 public interface ICommand {
 
 	public Resultado executar(EntidadeDominio entidade);
 	
-}*/
+}

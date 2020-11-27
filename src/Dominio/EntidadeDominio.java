@@ -1,4 +1,4 @@
-/*package Dominio;
+package Dominio;
 
 import java.util.Date;
 
@@ -26,4 +26,4 @@ public class EntidadeDominio {
 	}
 	
 	
-}*/
+}

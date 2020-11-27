@@ -1,43 +1,43 @@
-/*package Fachada;
+package Fachada;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import src.DAO.SalaDAO;
-import src.DAO.IDAO;
-import src.Dominio.EntidadeDominio;
-import src.Dominio.Sala;
-import src.Dominio.Resultado;
-import src.Strategy.IStrategy;
+import DAO.SalaDAO;
+import DAO.IDAO;
+import Dominio.EntidadeDominio;
+import Dominio.Sala;
+import Dominio.Resultado;
+//import Strategy.IStrategy;
 
 public class Fachada implements IFachada {
 
     private Map<String, IDAO> daos;
-    private Map<String, List<IStrategy>> rns;
+    //private Map<String, List<IStrategy>> rns;
 	private StringBuilder sb = new StringBuilder();
     Resultado resultado;
     
     IDAO dao = null;
     String nmClasse = null;
-    List<IStrategy> rng = null;
+    //List<IStrategy> rng = null;
 
     public Fachada() {
 		daos = new HashMap<String, IDAO>();
-		rns = new HashMap<String, List<IStrategy>>();
+		//rns = new HashMap<String, List<IStrategy>>();
 
 		// definindo dao para sala
-        daos.put(sala.class.getCodigo(), new SalaDAO());
+        //daos.put(Sala.class.getCodigo(), new SalaDAO());
 
-        rns.put(Funcionario.class.getName(), rnsFuncionario);
+        //rns.put(Funcionario.class.getName(), rnsFuncionario);
 
     }
 
     public Resultado salvar(EntidadeDominio entidade) {
         resultado = new Resultado();
 		nmClasse = entidade.getClass().getName();
-		rng = rns.get(nmClasse);
+		//rng = rns.get(nmClasse);
         sb.setLength(0);
         
         if (sb.length() == 0 || sb.toString().trim().equals("")) {
@@ -56,8 +56,9 @@ public class Fachada implements IFachada {
         }
         
         return resultado;
-
-        public Resultado excluir(EntidadeDominio entidade) {
+    }
+        
+      public Resultado excluir(EntidadeDominio entidade) {
             resultado = new Resultado();
     
             String nmClasse = entidade.getClass().getName();
@@ -82,7 +83,7 @@ public class Fachada implements IFachada {
     
             nmClasse = entidade.getClass().getName();
     
-            executarRegras(rns.get(nmClasse), entidade);
+            //executarRegras(rns.get(nmClasse), entidade);
     
             if (sb.toString().trim().equals("")) {
                 try {
@@ -103,6 +104,12 @@ public class Fachada implements IFachada {
     
         }
 
+		@Override
+		public Resultado consultar(EntidadeDominio entidade) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
     }
 
-}*/

@@ -1,4 +1,4 @@
-/*package Command;
+package Command;
 
 import Dominio.EntidadeDominio;
 import Dominio.Resultado;
@@ -10,4 +10,4 @@ public class AlterarCommand extends AbstractCommand {
 		return fachada.alterar(entidade);
 	}
 
-}*/
+}

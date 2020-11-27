@@ -1,7 +1,7 @@
-/*package Command;
+package Command;
 
-import src.Dominio.EntidadeDominio;
-import src.Dominio.Resultado;
+import Dominio.EntidadeDominio;
+import Dominio.Resultado;
 
 public class ExcluirCommand extends AbstractCommand {
 
@@ -11,4 +11,3 @@ public class ExcluirCommand extends AbstractCommand {
 	}
 
 }
-*/

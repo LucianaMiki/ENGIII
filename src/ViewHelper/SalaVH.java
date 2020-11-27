@@ -1,4 +1,4 @@
-/*package ViewHelper;
+package ViewHelper;
 
 import java.io.IOException;
 
@@ -8,14 +8,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import src.Dominio.Sala;
-import src.Dominio.EntidadeDominio;
-import src.Dominio.Resultado;
+import Dominio.Sala;
+import Dominio.EntidadeDominio;
+import Dominio.Resultado;
 
 
 public class SalaVH implements IViewHelper {
 
 	@Override
+	public EntidadeDominio getEntidade(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setView(Resultado resultado, HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	// Exemplo do projeto ESIII - master
+	
+	/*@Override
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
 
 		HttpSession session = null;
@@ -48,7 +63,7 @@ public class SalaVH implements IViewHelper {
 
 		Sala sala = new Sala();
 
-		/*Usuario usuario = new Usuario();
+		Usuario usuario = new Usuario();
 		usuario.setLogin(request.getParameter("txtEmail"));
 		usuario.setSenha(request.getParameter("txtSenha"));
 
@@ -91,5 +106,5 @@ public class SalaVH implements IViewHelper {
 
 		d.forward(request, response);
 
-	}
-}*/
+	}*/
+}

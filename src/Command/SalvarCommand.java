@@ -1,7 +1,7 @@
-/*package Command;
+package Command;
 
-import src.Dominio.EntidadeDominio;
-import src.Dominio.Resultado;
+import Dominio.EntidadeDominio;
+import Dominio.Resultado;
 
 public class SalvarCommand extends AbstractCommand {
 
@@ -9,4 +9,4 @@ public class SalvarCommand extends AbstractCommand {
 	public Resultado executar(EntidadeDominio entidade) {
 		return fachada.salvar(entidade);
 	}
-}*/
+}
