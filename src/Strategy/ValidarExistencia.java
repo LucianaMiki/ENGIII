@@ -1,7 +1,7 @@
 package Strategy;
 
-import dao.FuncDAO;
-import dao.IDAO;
+import DAO.FuncDAO;
+import DAO.IDAO;
 import Dominio.EntidadeDominio;
 import Dominio.Func;
 
@@ -11,7 +11,6 @@ public class ValidarExistencia implements IStrategy {
 
 		Func func = (Func) entidade;
 		IDAO dao = new FuncDAO();
-		
 		if(dao.Consultar(func).size() != 0) {
 			return "Funcionario ja cadastrado!";
 		}

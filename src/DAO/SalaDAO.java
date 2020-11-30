@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -27,8 +27,8 @@ public class SalaDAO extends AbstractJdbcDAO {
 
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
+            pst.setString(2, sala.getCodigo());
+            pst.setString(3, sala.getTipo());
             pst.setInt(4, sala.getCapacidade());
 
             Timestamp time = new Timestamp(sala.getDtCadastro().getTime());
@@ -71,8 +71,8 @@ public class SalaDAO extends AbstractJdbcDAO {
             sql.append("WHERE id_sal=?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getCodigo());
-            pst.setInt(2, sala.getTipo());
+            pst.setString(1, sala.getCodigo());
+            pst.setString(2, sala.getTipo());
             pst.setInt(3, sala.getCapacidade());
             pst.setInt(4, sala.getId());
 
@@ -94,7 +94,7 @@ public class SalaDAO extends AbstractJdbcDAO {
     }
 
     @Override
-    public void Excluir(EntidadeDominio entidade) {
+    public void excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -111,8 +111,8 @@ public class SalaDAO extends AbstractJdbcDAO {
 
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, sala.getId());
-            pst.setInt(2, sala.getCodigo());
-            pst.setInt(3, sala.getTipo());
+            pst.setString(2, sala.getCodigo());
+            pst.setString(3, sala.getTipo());
             pst.setInt(4, sala.getCapacidade());
             pst.executeUpdate();
             connection.commit();
@@ -130,4 +130,16 @@ public class SalaDAO extends AbstractJdbcDAO {
         }
         return null;
     }
+
+	@Override
+	public void salvar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
 }

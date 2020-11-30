@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -90,7 +90,7 @@ public class SessaoDAO extends AbstractJdbcDAO {
     }
 
     @Override
-    public void Excluir(EntidadeDominio entidade) {
+    public void excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -131,4 +131,16 @@ public class SessaoDAO extends AbstractJdbcDAO {
         }
         return null;
     }
+
+	@Override
+	public void salvar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterar(EntidadeDominio entidade) {
+		// TODO Auto-generated method stub
+		
+	}
 }

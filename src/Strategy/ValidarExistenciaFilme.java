@@ -1,7 +1,7 @@
 package Strategy;
 
-import dao.FilmeDAO;
-import dao.IDAO;
+import DAO.FilmeDAO;
+import DAO.IDAO;
 import Dominio.EntidadeDominio;
 import Dominio.Filme;
 

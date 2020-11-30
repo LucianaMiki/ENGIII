@@ -20,7 +20,7 @@ public class SalaVH implements IViewHelper {
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
 
 		HttpSession session = null;
-		Func func = null;
+		Sala func = null;
 		String operacao = request.getParameter("operacao");
 
 		if (operacao.equals("SALVAR")) {
@@ -37,7 +37,7 @@ public class SalaVH implements IViewHelper {
 
 		} else if (operacao.equals("PERFIL")) {
 			int id_func = Integer.parseInt(request.getParameter("id"));
-			func = new Func();
+			func = new Sala();
 			func.setId(id_func);
 		}
 

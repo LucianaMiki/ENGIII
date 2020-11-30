@@ -20,24 +20,24 @@ public class FilmeVH implements IViewHelper {
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
 
 		HttpSession session = null;
-		Func func = null;
+		Filme func = null;
 		String operacao = request.getParameter("operacao");
 
 		if (operacao.equals("SALVAR")) {
-			func = criarFunc(request);
+			func = criarFilme(request);
 
 		} else if (operacao.equals("ALTERAR")) {
-			func = criarFunc(request);
+			func = criarFilme(request);
 
 		} else if (operacao.equals("EXCLUIR")) {
-			func = criarFunc(request);
+			func = criarFilme(request);
 
 		} else if (operacao.equals("CONSULTAR")) {
-			func = criarFunc(request);
+			func = criarFilme(request);
 
 		} else if (operacao.equals("PERFIL")) {
 			int id_func = Integer.parseInt(request.getParameter("id"));
-			func = new Func();
+			func = new Filme();
 			func.setId(id_func);
 		}
 
@@ -55,7 +55,7 @@ public class FilmeVH implements IViewHelper {
 		String idFunc = request.getParameter("txtIdFuncionario");
 		//func.setPerfilAtendimento(perfil);
 		filme.setTitulo(request.getParameter("txtTitulo"));
-                filme.setDuracao(request.getParameter("InstantDuracao"));
+                //filme.setDuracao(request.getParameter("InstantDuracao"));
                 
                 filme.setElenco(request.getParameter("txtElenco"));
                 filme.setEstreia(request.getParameter("CalendarEstreia"));

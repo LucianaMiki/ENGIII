@@ -1,7 +1,7 @@
 package Strategy;
 
-import dao.SalaDAO;
-import dao.IDAO;
+import DAO.SalaDAO;
+import DAO.IDAO;
 import Dominio.EntidadeDominio;
 import Dominio.Sala;
 

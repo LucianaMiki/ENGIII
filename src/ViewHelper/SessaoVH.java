@@ -21,10 +21,10 @@ public class SessaoVH implements IViewHelper {
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
 
 		HttpSession session = null;
-		Func func = null;
+		Sessao func = null;
 		String operacao = request.getParameter("operacao");
 
-		if (operacao.equals("SALVAR")) {
+		/*if (operacao.equals("SALVAR")) {
 			func = criarFunc(request);
 
 		} else if (operacao.equals("ALTERAR")) {
@@ -40,7 +40,7 @@ public class SessaoVH implements IViewHelper {
 			int id_func = Integer.parseInt(request.getParameter("id"));
 			func = new Func();
 			func.setId(id_func);
-		}
+		}*/
 
 		return func;
 
@@ -56,13 +56,13 @@ public class SessaoVH implements IViewHelper {
 		String idFunc = request.getParameter("txtIdFuncionario");
 		//func.setPerfilAtendimento(perfil);
 		
-                sessao.setFxE(request.getParameter("intfxe"));
-                sessao.setFilme(request.getParameter("intfilme"));
-                sessao.setDt_fim(request.getParameter("Calendardt_fim"));
-                sessao.setDt_inicio(request.getParameter("Calendardt_inicio"));
-                sessao.setSala(request.getParameter("intCodigo"));
-                sessao.setValor_inteira(request.getParameter("floatValor_inteira"));
-                sessao.setValor_meia(request.getParameter("floatValor_meia"));
+                //sessao.setFxE(request.getParameter("intfxe"));
+                //sessao.setFilme(request.getParameter("intfilme"));
+                //sessao.setDt_fim(request.getParameter("Calendardt_fim"));
+                //sessao.setDt_inicio(request.getParameter("Calendardt_inicio"));
+                //sessao.setSala(request.getParameter("intCodigo"));
+                //sessao.setValor_inteira(request.getParameter("floatValor_inteira"));
+                //sessao.setValor_meia(request.getParameter("floatValor_meia"));
                 
                 return sessao;
 	}

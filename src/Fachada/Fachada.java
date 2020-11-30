@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dao.SalaDAO;
-import dao.IDAO;
+import DAO.SalaDAO;
+import DAO.IDAO;
 import Dominio.Func;
 import Dominio.EntidadeDominio;
 import Dominio.Filme;
@@ -17,8 +17,8 @@ import Strategy.IStrategy;
 import Strategy.ValidarExistenciaFilme;
 import Strategy.ValidarExistenciaSala;
 import Strategy.ValidarExistenciaSessao;
-import dao.FilmeDAO;
-import dao.SessaoDAO;
+import DAO.FilmeDAO;
+import DAO.SessaoDAO;
 
 public class Fachada implements IFachada {
 
@@ -67,7 +67,7 @@ public class Fachada implements IFachada {
         if (sb.length() == 0 || sb.toString().trim().equals("")) {
             try {
                 dao = daos.get(nmClasse);
-                dao.Inserir(entidade);
+                //dao.inserir(entidade);
                 resultado.addEntidades(entidade);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -95,7 +95,7 @@ public class Fachada implements IFachada {
         if (sb.toString().trim().equals("")) {
             try {
                 dao = daos.get(nmClasse);
-                dao.Alterar(entidade);
+                dao.alterar(entidade);
                 resultado.addEntidades(entidade);
 
             } catch (Exception e) {
@@ -121,7 +121,7 @@ public class Fachada implements IFachada {
         executarRegras(rns.get(nmClasse), entidade);
 
         try {
-            dao.Excluir(entidade);
+            dao.excluir(entidade);
             resultado.addEntidades(entidade);
 
         } catch (Exception e) {
@@ -143,7 +143,7 @@ public class Fachada implements IFachada {
         if (sb.length() == 0 || sb.toString().trim().equals("")) {
             try {
                 dao = daos.get(nmClasse);
-                dao.Inserir(entidade);
+                //dao.Inserir(entidade);
                 resultado.addEntidades(entidade);
             } catch (Exception e) {
                 e.printStackTrace();
