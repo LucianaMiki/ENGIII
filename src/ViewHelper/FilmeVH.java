@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Dominio.Sala;
 import Dominio.EntidadeDominio;
+import Dominio.Filme;
 import Dominio.Func;
 import Dominio.Resultado;
 
 
-public class SalaVH implements IViewHelper {
+public class FilmeVH implements IViewHelper {
 
 	@Override
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
@@ -45,19 +45,25 @@ public class SalaVH implements IViewHelper {
 
 	}
 
-	private Sala criarFunc(HttpServletRequest request) {
+	private Filme criarFilme(HttpServletRequest request) {
 
-		Sala sala = new Sala();
+		Filme filme = new Filme();
 
 		Func func = new Func();
 		func.setEmail(request.getParameter("txtEmail"));
 		func.setSenha(request.getParameter("txtSenha"));
 		String idFunc = request.getParameter("txtIdFuncionario");
 		//func.setPerfilAtendimento(perfil);
-		sala.setCodigo(request.getParameter("intCodigo"));
-		sala.setTipo(request.getParameter("intTipo"));
-		sala.setTipo(request.getParameter("intCapacidade"));
-		return sala;
+		filme.setTitulo(request.getParameter("txtTitulo"));
+                filme.setDuracao(request.getParameter("InstantDuracao"));
+                
+                filme.setElenco(request.getParameter("txtElenco"));
+                filme.setEstreia(request.getParameter("CalendarEstreia"));
+                               
+		filme.setSinopse(request.getParameter("txtSinopse"));
+                filme.setDiretor(request.getParameter("txtDiretor"));     
+                
+                return filme;
 	}
 
 	@Override

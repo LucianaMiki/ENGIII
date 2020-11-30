@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Dominio.Sala;
 import Dominio.EntidadeDominio;
+import Dominio.Filme;
 import Dominio.Func;
 import Dominio.Resultado;
+import Dominio.Sessao;
 
 
-public class SalaVH implements IViewHelper {
+public class SessaoVH implements IViewHelper {
 
 	@Override
 	public EntidadeDominio getEntidade(HttpServletRequest request) {
@@ -45,19 +46,25 @@ public class SalaVH implements IViewHelper {
 
 	}
 
-	private Sala criarFunc(HttpServletRequest request) {
+	private Sessao criarSessao(HttpServletRequest request) {
 
-		Sala sala = new Sala();
+		Sessao sessao = new Sessao();
 
 		Func func = new Func();
 		func.setEmail(request.getParameter("txtEmail"));
 		func.setSenha(request.getParameter("txtSenha"));
 		String idFunc = request.getParameter("txtIdFuncionario");
 		//func.setPerfilAtendimento(perfil);
-		sala.setCodigo(request.getParameter("intCodigo"));
-		sala.setTipo(request.getParameter("intTipo"));
-		sala.setTipo(request.getParameter("intCapacidade"));
-		return sala;
+		
+                sessao.setFxE(request.getParameter("intfxe"));
+                sessao.setFilme(request.getParameter("intfilme"));
+                sessao.setDt_fim(request.getParameter("Calendardt_fim"));
+                sessao.setDt_inicio(request.getParameter("Calendardt_inicio"));
+                sessao.setSala(request.getParameter("intCodigo"));
+                sessao.setValor_inteira(request.getParameter("floatValor_inteira"));
+                sessao.setValor_meia(request.getParameter("floatValor_meia"));
+                
+                return sessao;
 	}
 
 	@Override

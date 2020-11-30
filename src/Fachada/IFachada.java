@@ -4,8 +4,9 @@ import Dominio.EntidadeDominio;
 import Dominio.Resultado;
 
 public interface IFachada {
-	public Resultado salvar(EntidadeDominio entidade);
-	public Resultado alterar(EntidadeDominio entidade);
-	public Resultado excluir(EntidadeDominio entidade);
-	public Resultado consultar(EntidadeDominio entidade);
+	public Resultado Inserir(EntidadeDominio entidade);
+	public Resultado Alterar(EntidadeDominio entidade);
+	public Resultado Excluir(EntidadeDominio entidade);
+	public Resultado Consultar(EntidadeDominio entidade);
+
 }

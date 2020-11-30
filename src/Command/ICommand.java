@@ -1,4 +1,4 @@
-package Command;
+package command;
 
 import Dominio.EntidadeDominio;
 import Dominio.Resultado;

@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6,6 +6,7 @@ import java.util.List;
 import Dominio.EntidadeDominio;
 import Dominio.Filme;
 import java.sql.Date;
+
 
 public class FilmeDAO extends AbstractJdbcDAO{
  public FilmeDAO() {
@@ -26,8 +27,8 @@ public class FilmeDAO extends AbstractJdbcDAO{
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, fil.getId());
             pst.setString(2, fil.getTitulo());
-            pst.setDate(3, (Date) fil.getEstreia());
-            pst.setDate(4, (Date) fil.getDuracao());
+            pst.setString(3, fil.getEstreia());
+            pst.setTime(4,fil.getDuracao());
             pst.setString(5, fil.getDiretor());
             pst.setString(6, fil.getElenco());
             pst.setString(7, fil.getSinopse());
@@ -62,8 +63,8 @@ public class FilmeDAO extends AbstractJdbcDAO{
 
             pst = connection.prepareStatement(sql.toString());
             pst.setString(1, fil.getTitulo());
-            pst.setDate(2, (Date) fil.getEstreia());
-            pst.setDate(3, (Date) fil.getDuracao());
+            pst.setString(2, fil.getEstreia());
+            pst.setTime(3,fil.getDuracao());
             pst.setString(4, fil.getDiretor());
             pst.setString(5, fil.getElenco());
             pst.setString(6, fil.getSinopse());
@@ -87,7 +88,7 @@ public class FilmeDAO extends AbstractJdbcDAO{
     }
 
     @Override
-    public void excluir(EntidadeDominio entidade) {
+    public void Excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -105,8 +106,8 @@ public class FilmeDAO extends AbstractJdbcDAO{
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, fil.getId());
             pst.setString(2, fil.getTitulo());
-            pst.setDate(3, (Date) fil.getEstreia());
-            pst.setDate(4, (Date) fil.getDuracao());
+            pst.setString(3, fil.getEstreia());
+            pst.setTime(4,fil.getDuracao());
             pst.setString(5, fil.getDiretor());
             pst.setString(6, fil.getElenco());
             pst.setString(7, fil.getSinopse());
@@ -126,18 +127,6 @@ public class FilmeDAO extends AbstractJdbcDAO{
         }
         return null;
     }
-
-	@Override
-	public void salvar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void alterar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
 
     
 }

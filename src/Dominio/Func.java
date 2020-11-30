@@ -1,22 +1,22 @@
 package Dominio;
 
-//import Strategy.IStrategy;
+import Strategy.IStrategy;
 
 public class Func extends EntidadeDominio{
     private String Email;
     private String Senha;
     private String Permss;
-
-    public Func(){
-        super();
-    }
     	
-	public Func(String email, String senha, String permss) {
-	    super();
-        this.Email = email;
-        this.Senha = senha;
-        this.Permss = permss;
+		public Func(String email, String senha, String permss) {
+		super();
+                this.Email = email;
+                this.Senha = senha;
+                this.Permss = permss;
 	}
+
+    public Func() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public String getEmail() {
         return Email;

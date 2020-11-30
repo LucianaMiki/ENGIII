@@ -1,25 +1,13 @@
 package Dominio;
 
-import java.sql.Date;
-
 public class Sessao extends EntidadeDominio{
     	private float valor_meia;
         private float valor_inteira;
-        private Date dt_incio;
-        private Date dt_fim;
-
-    public Sessao(){
-        super();
-    }
-
-    public Sessao(float valor_meia, float valor_inteira, Date dt_inicio, Date dt_fim){
-        super();
-        this.valor_meia = valor_meia;
-        this.valor_inteira = valor_inteira;
-        this.dt_incio = dt_incio;
-        this.dt_fim = dt_fim;
-        
-    }
+        private String dt_incio;
+        private String dt_fim;
+        private int fxe;
+        private Sala sala; 
+        private Filme filme;
 
     public float getValor_meia() {
         return valor_meia;
@@ -37,21 +25,45 @@ public class Sessao extends EntidadeDominio{
         this.valor_inteira = valor_inteira;
     }
 
-    public Date getDt_incio() {
+    public String getDt_incio() {
         return dt_incio;
     }
 
-    public void setDt_incio(Date dt_incio) {
+    public void setDt_incio(String dt_incio) {
         this.dt_incio = dt_incio;
     }
 
-    public Date getDt_fim() {
+    public String getDt_fim() {
         return dt_fim;
     }
 
-    public void setDt_fim(Date dt_fim) {
+    public void setDt_fim(String dt_fim) {
         this.dt_fim = dt_fim;
     }
 
-        
+    public int getFxe() {
+        return fxe;
+    }
+
+    public void setFxe(int fxe) {
+        this.fxe = fxe;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Filme getFilme() {
+        return filme;
+    }
+
+    public void setFilme(Filme filme) {
+        this.filme = filme;
+    }
+
+    
 }

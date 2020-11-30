@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import Dominio.EntidadeDominio;
 import Dominio.Sala;
+import java.sql.ResultSet;
 
 public class SalaDAO extends AbstractJdbcDAO {
 
@@ -26,14 +27,22 @@ public class SalaDAO extends AbstractJdbcDAO {
 
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, sala.getId());
-            pst.setString(2, sala.getCodigo());
-            pst.setString(3, sala.getTipo());
+            pst.setInt(2, sala.getCodigo());
+            pst.setInt(3, sala.getTipo());
             pst.setInt(4, sala.getCapacidade());
 
             Timestamp time = new Timestamp(sala.getDtCadastro().getTime());
             pst.setTimestamp(3, time);
             pst.executeUpdate();
+            /*
+            ResultSet rs = pst.getGeneratedKeys();
+            if (rs.next()){
+                int last_inserted_id = rs.getInt(1);
+                sala.setId(last_inserted_id);
+            }          
+            */
             connection.commit();
+            
         } catch (SQLException e) {
             try {
                 connection.rollback();
@@ -62,8 +71,8 @@ public class SalaDAO extends AbstractJdbcDAO {
             sql.append("WHERE id_sal=?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setString(1, sala.getCodigo());
-            pst.setString(2, sala.getTipo());
+            pst.setInt(1, sala.getCodigo());
+            pst.setInt(2, sala.getTipo());
             pst.setInt(3, sala.getCapacidade());
             pst.setInt(4, sala.getId());
 
@@ -85,7 +94,7 @@ public class SalaDAO extends AbstractJdbcDAO {
     }
 
     @Override
-    public void excluir(EntidadeDominio entidade) {
+    public void Excluir(EntidadeDominio entidade) {
     }
 
     @Override
@@ -102,8 +111,8 @@ public class SalaDAO extends AbstractJdbcDAO {
 
             pst = connection.prepareStatement(sql.toString());
             pst.setInt(1, sala.getId());
-            pst.setString(2, sala.getCodigo());
-            pst.setString(3, sala.getTipo());
+            pst.setInt(2, sala.getCodigo());
+            pst.setInt(3, sala.getTipo());
             pst.setInt(4, sala.getCapacidade());
             pst.executeUpdate();
             connection.commit();
@@ -121,16 +130,4 @@ public class SalaDAO extends AbstractJdbcDAO {
         }
         return null;
     }
-
-	@Override
-	public void salvar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void alterar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
 }
