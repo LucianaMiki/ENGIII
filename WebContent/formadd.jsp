@@ -62,7 +62,7 @@
 								}
 							}
 						</script>
-						<!--<div class="col-6 col-12-mobilep">
+						<div class="col-6 col-12-mobilep">
 							<select name="tipo" required="">
 								<option value="">Selecione o código da sala</option>
 								<option value="">comum</option>
@@ -115,11 +115,6 @@
 						<div class="col-12">
 							<textarea name="sinopse" placeholder="Digite a sinopse do filme em cartaz" required=""></textarea>
 						</div>
-						<div class="col-12">
-							<label align="left" for="myfile" required="">Clique aqui para selecionar arquivo do cartaz</label>
-								  <input type="file" id="myfile" name="file" accept="image/*" required="required" ><br><br>
-							</div>
-						-->
 						<div class="col-12">
 							<ul class="actions special">
 								
