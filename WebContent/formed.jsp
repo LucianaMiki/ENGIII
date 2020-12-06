@@ -61,9 +61,6 @@
 						<div class="col-6 col-12-mobilep">
 							<input type="text" name="dtS" placeholder="Digite a data final da exibição"required="">
 						</div>
-						<div class="col-12">
-							<textarea name="horarios" placeholder="Digite os horários das sessões disponíveis"required=""></textarea>
-						</div>
 						<label>Filme</label><br>
 						<div class="col-12">
 							<input type="text" name="titulo" placeholder="Digite o título do filme"required="">
