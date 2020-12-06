@@ -42,45 +42,45 @@
 
 		<div class="box alt container">
 			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/re.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/re.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Senhor dos Aneis<br>A Sociedade do Anel</h3>
-					<p>Faixa Etária: 12 ‧ 2001 ‧ 03h48m ‧ Sala 01 - VIP</p>
+					<p>Faixa Etária: 12 ‧ 2001 ‧ Fantasia/Aventura ‧ 3h48m ‧ Sala 01 - VIP</p>
 				</div>
 			</section>
 			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic2.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/pic2.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Senhor dos Aneis<br>As Duas Torres</h3>
-					<p>Faixa Etária: 12 ‧ 2002 ‧ 03h43m ‧ Sala 02 - Normal</p>
+					<p>Faixa Etária: 12 ‧ 2002 ‧ Aventura/Fantasia ‧ 3h43m ‧ Sala 02 - Normal</p>
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/pic03.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/pic03.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Senhor dos Aneis<br>O Retorno do Rei</h3>
-					<p>Faixa Etária: 16 ‧ 2003 ‧ 04h11m ‧ Sala 03 - Normal</p>
+					<p>Faixa Etária: 14 ‧ 2003 ‧ Fantasia/Aventura ‧ 4h11m ‧ Sala 03 - Normal</p>
 				</div>
 			</section>
 			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic4.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/pic4.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Hobbit<br>Uma Jornada Inesperada</h3>
-					<p>Faixa Etária: 12 ‧ 2012 ‧ 03h02m ‧ Sala 04 - Normal</p>
+					<p>Faixa Etária: 12 ‧ 2012 ‧ Aventura/Fantasia ‧ 3h2m ‧ Sala 04 - Normal</p>
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/pic5.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/pic5.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Hobbit<br>A Desolação de Smaug</h3>
-					<p>Faixa Etária: 12 ‧ 2013 ‧ 03h07m ‧ Sala 05 - Normal</p>
+					<p>Faixa Etária: 12 ‧ 2013 ‧ Aventura/Fantasia ‧ 3h7m ‧ Sala 05 - Normal</p>
 				</div>
 			</section>
 			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic6.jpg" alt="" /></a>
+				<a href="#" class="image icon solid "><img src="assets/css/images/pic6.jpg" alt="" /></a>
 				<div class="content">
 					<h3>O Hobbit<br>A Batalha dos Cinco Exercitos</h3>
-					<p>Faixa Etária: 12 ‧ 2014 ‧ 02h44m ‧ Sala 06 - Normal</p>
+					<p>Faixa Etária: 12 ‧ 2014 ‧ Fantasia/Aventura ‧ 2h44m ‧ Sala 06 - Normal</p>
 				</div>
 			</section>
 		</div>
@@ -146,7 +146,7 @@
 
 			<ul class="copyright">
 				<li>&copy; Todos os direitos reservados</li>
-				<li>CineMax</a></li>
+				<li>CineMax</li>
 			</ul>
 
 		</div>

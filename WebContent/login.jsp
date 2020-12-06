@@ -46,8 +46,9 @@
 			<button id="btnOcorrenciaConcluida" class="hide" type="submit" onClick="window.location.href='func.html'" >ENTRAR</button>
 				</div>
 			</div>
+		</div>
 	</form>
-	</script>
+	
 </body>
 
 </html>

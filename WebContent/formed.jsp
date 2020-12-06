@@ -28,83 +28,63 @@
 		</header>
 	</div>
 
+	<!-- Footer -->
 	<div id="footer">
-		<div class="container medium" id="formed">
+		<div class="container medium" id="contato">
 			<header class="major last">
-				<form method="post" action="#">
-					<label id="labelSala" align="left">Sala</label>	<br>
+				<form method="post" action="#" >
+					<label align ="left">Sala</label>	<br>
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
-							<select id="cdSala" name="codigo" required="">
-								<option value="">Selecione o código da sala</option>
-								<option value="l">Sala 01</option>
-								<option value="2">Sala 02</option>
-								<option value="3">Sala 03</option>
-								<option value="4">Sala 04</option>
-								<option value="5">Sala 05</option>
-								<option value="6">Sala 06</option>
-							</select>
+							<input type="text" name="codigo" placeholder="Digite o código da sala" required=""/>
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<select id="tpSala"name="tipo" required="">
-								<option value="">Selecione o tipo da sala</option>
-								<option value="1">comum</option>
-								<option value="2">VIP</option>
-						 </select>
-							</div>
-						<div class="col-12">
-							<input id="capSala" type="text" name="capacidade" required="" placeholder="Digite a capacidade da sala" />
+							<input type="text" name="tipo" placeholder="Digite o tipo da sala" required=""/>
 						</div>
-						</select>
-						<label id="labelSessao">Sessão</label><br>
 						<div class="col-12">
-							<select id="fxeSessao" name="faixaE" required="">
-								<option value="">Selecione a faixa etária da sessão</option>
-								<option value="1">L</option>
-								<option value="2">10</option>
-								<option value="3">12</option>
-								<option value="4">16</option>
-								<option value="5">18</option>
-							 </select>
+							<input type="text" name="capacidade" placeholder="Digite a capacidade da sala" required=""/>
+						</div>
+	
+						<label>Sessão</label><br>
+						<div class="col-12">
+							<input type="text" name="faixaE" placeholder="Digite a faixa etária da sessão"required="">
+												</div>
+						<div class="col-6 col-12-mobilep">
+							<input type="text" name="valorM" placeholder="Digite o valor da entrada meia" required=""/>
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input id="vmSessao" type="text" name="valorM" placeholder="Digite o valor da entrada meia" />
+							<input type="text" name="valorI" placeholder="Digite o valor da entrada inteira"required="" />
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input id="viSessao" type="text" name="valorI" required="" placeholder="Digite o valor da entrada inteira" />
-						</div>
-						<div class="col-12">
-							<input id="dtiSessao" placeholder="Selecione data inicial de exibição" type="date" required="required"  maxlength="10" name="dtI" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
-						</div>
-						<div class="col-12">
-							<input id="dtfSessao" placeholder="Selecione data final de exibição" type="date" required="required"  maxlength="10" name="dtF" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
-						</div>
-						<div class="col-12">
-							<textarea id="hrSessao"name="horarios" required="" placeholder="Digite horários das sessões"></textarea>
-						</div>
-
-						<label id="labelFilme">Filme</label><br>
-						<div class="col-12">
-							<input id="tFilme" type="text" name="titulo" placeholder="Digite o título do filme"required="">
+							<input type="text" name="dtI" placeholder="Digite a data inicial da exibição"required="">
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input id="esFilme" type="text" name="ano" placeholder="Digite o ano de estreia" required=""/>
+							<input type="text" name="dtS" placeholder="Digite a data final da exibição"required="">
+						</div>
+						<div class="col-12">
+							<textarea name="horarios" placeholder="Digite os horários das sessões disponíveis"required=""></textarea>
+						</div>
+						<label>Filme</label><br>
+						<div class="col-12">
+							<input type="text" name="titulo" placeholder="Digite o título do filme"required="">
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input id="duFilme" type="text" name="duracao" placeholder="Digite a duração do filme" required=""/>
+							<input type="text" name="ano" placeholder="Digite o ano de estreia"required="" />
+						</div>
+						<div class="col-6 col-12-mobilep">
+							<input type="text" name="duracao" placeholder="Digite a duração do filme"required="" />
 						</div>
 						<div class="col-12">
-							<textarea id="elFilme" name="elenco" placeholder="Digite o elenco principal do filme" required=""></textarea>
+							<textarea name="elenco" placeholder="Digite o elenco principal do filme"required=""></textarea>
 						</div>
 						<div class="col-12">
-							<textarea id="siFilme" name="sinopse" placeholder="Digite a sinopse do filme em cartaz" required=""></textarea>
+							<textarea name="sinopse" placeholder="Digite a sinopse do filme em cartaz"required=""></textarea>
 						</div>
 						<div class="col-12">
-							<label id="aqvFilme" align="left" for="myfile" required="">Clique aqui para selecionar arquivo do cartaz</label>
-								  <input type="file" id="myfile" name="file" accept="image/*" required="required" ><br><br>
-							</div>
-				
-						
+						<label align="left" for="myfile">Clique aqui para selecionar arquivo do cartaz</label>
+  							<input type="file" id="myfile" name="file"><br><br>
+						</div>
+					
 						<div class="col-12">
 							<ul class="actions special">
 								<li><input type="submit" value="EDITAR" /></li>
@@ -112,12 +92,13 @@
 							</ul>
 						</div>
 					</div>
+				</form>
 			</header>
-			</form>
+			
 
 			<ul class="copyright">
 				<li>&copy; Todos os direitos reservados</li>
-				<li>CineMax</a></li>
+				<li>CineMax</li>
 			</ul>
 
 		</div>
@@ -131,7 +112,6 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/comboBox.js"></script>
 
-					
 </body>
 
 </html>

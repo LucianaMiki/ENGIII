@@ -144,7 +144,7 @@
 		<div class="container medium" id="contato">
 			<ul class="copyright">
 				<li>&copy; Todos os direitos reservados</li>
-				<li>CineMax</a></li>
+				<li>CineMax</li>
 			</ul>
 
 		</div>
