@@ -55,10 +55,10 @@
 						<div class="col-6 col-12-mobilep">
 							<input type="text" name="valorI" placeholder="Digite o valor da entrada inteira"required="" />
 						</div>
-						<div class="col-6 col-12-mobilep">
+						<div class="col-12">
 							<input type="text" name="dtI" placeholder="Digite a data inicial da exibição"required="">
 						</div>
-						<div class="col-6 col-12-mobilep">
+						<div class="col-12">
 							<input type="text" name="dtS" placeholder="Digite a data final da exibição"required="">
 						</div>
 						<label>Filme</label><br>
