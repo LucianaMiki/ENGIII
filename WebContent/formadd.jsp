@@ -93,11 +93,8 @@
 						<div class="col-12">
 							<input placeholder="Selecione data inicial de exibição" type="date" required="required"  maxlength="10" name="dtI" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
 						</div>
-						<div class="col-6 col-12-mobilep">
+						<div class="col-12">
 							<input type="text" name="dtS" required="" placeholder="Digite a data final da exibição">
-						</div>
-						<div class="col-6 col-12-mobilep">
-							<textarea name="horarios" required="" placeholder="Digite horários das sessões"></textarea>
 						</div>
 						<label>Filme</label><br>
 						<div class="col-12">
@@ -128,7 +125,7 @@
 			<ul class="copyright">
 				<li>&copy; Todos os direitos reservados</li>
 				<li>CineMax</li>
-				<li>aaaaaaaaaaa</li>
+				
 			</ul>
 
 		</div>
