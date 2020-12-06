@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import DAO.SalaDAO;
-import DAO.IDAO;
-import Dominio.Func;
+import dao.FilmeDAO;
+import dao.SessaoDAO;
+import dao.SalaDAO;
+import dao.IDAO;
 import Dominio.EntidadeDominio;
 import Dominio.Filme;
 import Dominio.Sala;
@@ -17,8 +17,12 @@ import Strategy.IStrategy;
 import Strategy.ValidarExistenciaFilme;
 import Strategy.ValidarExistenciaSala;
 import Strategy.ValidarExistenciaSessao;
-import DAO.FilmeDAO;
-import DAO.SessaoDAO;
+import Strategy.ValidarCalculoIngresso;
+import Strategy.ValidarDataSessao;
+import Strategy.ValidarLimiteFilme;
+import Strategy.ValidarLimiteSala;
+import Strategy.ValidarLimiteSessao;
+
 
 public class Fachada implements IFachada {
 
