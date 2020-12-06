@@ -81,11 +81,6 @@
 							<textarea name="sinopse" placeholder="Digite a sinopse do filme em cartaz"required=""></textarea>
 						</div>
 						<div class="col-12">
-						<label align="left" for="myfile">Clique aqui para selecionar arquivo do cartaz</label>
-  							<input type="file" id="myfile" name="file"><br><br>
-						</div>
-					
-						<div class="col-12">
 							<ul class="actions special">
 								<li><input type="submit" value="EDITAR" /></li>
 								<li><input type="reset" value="REDEFINIR"/></li>
