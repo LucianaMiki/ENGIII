@@ -12,18 +12,33 @@
 
   <servlet>
   	<description></description>
-  	<display-name>SalaController</display-name>
-  	<servlet-name>SalaController</servlet-name>
-  	<servlet-class>br.com.fatec.controller.SalaController</servlet-class>
+  	<display-name>Controle</display-name>
+  	<servlet-name>Controle</servlet-name>
+  	<servlet-class>br.com.fatec.controller.Controle</servlet-class>
   </servlet>
 
   <servlet-mapping>
-  	<servlet-name>SalaController</servlet-name>
+  	<servlet-name>Controle</servlet-name>
   	<url-pattern>/SalaController</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>SalaController</servlet-name>
-    <url-pattern>/SalvarTudo</url-pattern>
+    <servlet-name>Controle</servlet-name>
+    <url-pattern>/SalvarSessao</url-pattern>
+  </servlet-mapping>
+
+	<servlet-mapping>
+    <servlet-name>Controle</servlet-name>
+    <url-pattern>/SalvarFilme</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Controle</servlet-name>
+    <url-pattern>/SalvarSala</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Controle</servlet-name>
+    <url-pattern>/Salvar</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,5 +1,4 @@
-package br.com.fatec.viewhelper;
-/*package ViewHelper;
+ package br.com.fatec.viewhelper;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,17 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Dominio.Sala;
-import Dominio.EntidadeDominio;
-import Dominio.Filme;
-import Dominio.Func;
-import Dominio.Resultado;
-
+import br.com.fatec.dominio.Sala;
+import br.com.fatec.dominio.EntidadeDominio;
+import br.com.fatec.dominio.Filme;
 
 public class SalaVH implements IViewHelper {
 
-	@Override
-	public EntidadeDominio getEntidade(HttpServletRequest request) {
+	public static EntidadeDominio getEntidade(HttpServletRequest request) {
 		String txtCodigo = request.getParameter("txtCodigo");
 		String txtTipo = request.getParameter("tipo");
 		Integer txtCapacidade = Integer.parseInt(request.getParameter("capacidade"));
@@ -30,7 +25,7 @@ public class SalaVH implements IViewHelper {
 	}
 
 	@Override
-	public void setView(Resultado resultado, HttpServletRequest request, HttpServletResponse response)
+	public void setView(Object resultado, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
 		PrintWriter out;
 		try {
@@ -46,4 +41,4 @@ public class SalaVH implements IViewHelper {
 		}	
 
 	}
-}*/
+}

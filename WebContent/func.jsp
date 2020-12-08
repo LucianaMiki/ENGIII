@@ -40,78 +40,80 @@
 				</li>
 				<li><input type="submit" value="Cadastrar Novo Agendamento" id="btnadd" onClick="window.location.href='formadd.jsp'"/></li>
 			</ul><br>
-			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/re.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 01</h3>
-					<p>O Senhor dos Aneis: A Sociedade do Anel<br>Fantasia/Aventura ‧ 03:48 ‧ Faixa Etária: 12
-						<br>Sessões - 14:00, 18:30, 22:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.html'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
-			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic2.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 02</h3>
-					<p>O Senhor dos Aneis: As Duas Torres<br>Fantasia/Aventura ‧ 03:43 ‧ Faixa Etária: 12 <br>Sessões -
-						12:00, 16:30, 21:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.jsp'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
-			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/pic03.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 03</h3>
-					<p>O Senhor dos Aneis: O Retorno do Rei<br>Fantasia/Aventura ‧ 04:11 ‧ Faixa Etária: 14 <br>Sessões
-						- 12:00, 16:30, 21:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.jsp'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
-			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic4.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 04</h3>
-					<p>O Hobbit: Uma Jornada Inesperada<br>Fantasia/Aventura ‧ 03:o2 ‧ Faixa Etária: 12 <br>Sessões -
-						13:00, 16:30, 20:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.jsp'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
-			<section class="feature left">
-				<a href="#" class="image icon solid "><img src="images/pic5.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 05</h3>
-					<p>O Hobbit: A Desolação de Smaug<br>Fantasia/Aventura ‧ 03:o7 ‧ Faixa Etária: 12 <br>Sessões -
-						12:00, 16:30, 21:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.jsp'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
-			<section class="feature right">
-				<a href="#" class="image icon solid "><img src="images/pic6.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Sala 06</h3>
-					<p>O Hobbit: A Batalha dos Cinco Exercitos<br>Fantasia/Aventura ‧ 02:44 ‧ Faixa Etária: 12
-						<br>Sessões - 12:00, 16:30, 21:00</p>
-					<ul class="actions special">
-						<li><input type="submit" value="Editar" onClick="window.location.href='formed.jsp'" /></li>
-						<li><input type="submit" value="Excluir" data-toggle="modal" data-target="#myModal" /></li>
-					</ul>
-				</div>
-			</section>
+			<form method="get" action="Salvar">
+				<section class="feature left">
+					<a href="#" class="image icon solid "><img src="images/re.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 01</h3>
+						<p>O Senhor dos Aneis: A Sociedade do Anel<br>Fantasia/Aventura ‧ 03:48 ‧ Faixa Etária: 12
+							<br>Sessões - 14:00, 18:30, 22:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 01"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 01" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+				<section class="feature right">
+					<a href="#" class="image icon solid "><img src="images/pic2.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 02</h3>
+						<p>O Senhor dos Aneis: As Duas Torres<br>Fantasia/Aventura ‧ 03:43 ‧ Faixa Etária: 12 <br>Sessões -
+							12:00, 16:30, 21:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 02"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 02" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+				<section class="feature left">
+					<a href="#" class="image icon solid "><img src="images/pic03.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 03</h3>
+						<p>O Senhor dos Aneis: O Retorno do Rei<br>Fantasia/Aventura ‧ 04:11 ‧ Faixa Etária: 14 <br>Sessões
+							- 12:00, 16:30, 21:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 03"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 03" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+				<section class="feature right">
+					<a href="#" class="image icon solid "><img src="images/pic4.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 04</h3>
+						<p>O Hobbit: Uma Jornada Inesperada<br>Fantasia/Aventura ‧ 03:o2 ‧ Faixa Etária: 12 <br>Sessões -
+							13:00, 16:30, 20:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 04"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 04" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+				<section class="feature left">
+					<a href="#" class="image icon solid "><img src="images/pic5.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 05</h3>
+						<p>O Hobbit: A Desolação de Smaug<br>Fantasia/Aventura ‧ 03:o7 ‧ Faixa Etária: 12 <br>Sessões -
+							12:00, 16:30, 21:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 05"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 05" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+				<section class="feature right">
+					<a href="#" class="image icon solid "><img src="images/pic6.jpg" alt="" /></a>
+					<div class="content">
+						<h3>Sala 06</h3>
+						<p>O Hobbit: A Batalha dos Cinco Exercitos<br>Fantasia/Aventura ‧ 02:44 ‧ Faixa Etária: 12
+							<br>Sessões - 12:00, 16:30, 21:00</p>
+						<ul class="actions special">
+							<li><input type="submit" name="operacao" value="Editar Sala 06"/></li>
+							<li><input type="submit" name="operacao" value="Excluir Sala 06" data-toggle="modal" data-target="#myModal" /></li>
+						</ul>
+					</div>
+				</section>
+			</form>
 			<!--Modal-->
 			<div class="container">
 				<!-- Modal -->

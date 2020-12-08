@@ -6,19 +6,27 @@ public class Sessao extends EntidadeDominio{
         private String dt_inicio;
         private String dt_fim;
         private Integer fxe;
-        private Sala sala; 
-        private Filme filme;
+        private Integer salaId; 
+        private Integer filmeId;
 
     public Sessao() {}
     
-    public Sessao(float valor_meia, float valor_inteira, String dt_inicio, String dt_fim, Integer fxe, Sala sala, Filme filme) {
+    public Sessao(float valor_meia, float valor_inteira, String dt_inicio, String dt_fim, Integer fxe) {
     	this.valor_meia = valor_meia;
     	this.valor_inteira = valor_inteira;
     	this.dt_inicio = dt_inicio;
     	this.dt_fim = dt_fim;
     	this.fxe = fxe;
-    	this.sala = sala;
-    	this.filme = filme;
+    }
+    
+    public Sessao(float valor_meia, float valor_inteira, String dt_inicio, String dt_fim, Integer fxe, Integer salaId, Integer filmeId) {
+    	this.valor_meia = valor_meia;
+    	this.valor_inteira = valor_inteira;
+    	this.dt_inicio = dt_inicio;
+    	this.dt_fim = dt_fim;
+    	this.fxe = fxe;
+    	this.salaId = salaId;
+    	this.filmeId = filmeId;
     }
         
     public float getValor_meia() {
@@ -61,20 +69,20 @@ public class Sessao extends EntidadeDominio{
         this.fxe = fxe;
     }
 
-    public Sala getSala() {
-        return sala;
+    public Integer getSalaId() {
+        return salaId;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSalaId(Integer salaId) {
+        this.salaId = salaId;
     }
 
-    public Filme getFilme() {
-        return filme;
+    public Integer getFilmeId() {
+        return filmeId;
     }
 
-    public void setFilme(Filme filme) {
-        this.filme = filme;
+    public void setFilmeId(Integer filmeId) {
+        this.filmeId = filmeId;
     }
 
 

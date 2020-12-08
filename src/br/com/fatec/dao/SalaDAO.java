@@ -2,10 +2,13 @@ package br.com.fatec.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fatec.dominio.EntidadeDominio;
+import br.com.fatec.dominio.Filme;
 import br.com.fatec.dominio.Sala;
 
 import java.sql.ResultSet;
@@ -25,36 +28,35 @@ public class SalaDAO extends AbstractJdbcDAO {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("INSERT INTO sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) VALUES (?, ?, ?, ?)");
+            sql.append("INSERT INTO sala (id_cd_sal, id_tp_sal,id_cap_sal) VALUES (?, ?, ?) ");
 
-            pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setString(2, sala.getCodigo());
-            pst.setString(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
-
-            Timestamp time = new Timestamp(sala.getDtCadastro().getTime());
-            pst.setTimestamp(3, time);
+            pst = connection.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+            pst.setInt(1, Integer.parseInt(sala.getCodigo()));
+            pst.setInt(2, Integer.parseInt(sala.getTipo()));
+            pst.setInt(3, sala.getCapacidade());
+            
             pst.executeUpdate();
-            /*
+            
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()){
                 int last_inserted_id = rs.getInt(1);
                 sala.setId(last_inserted_id);
             }          
-            */
+            
             connection.commit();
             
         } catch (SQLException e) {
             try {
                 connection.rollback();
             } catch (SQLException e1) {
+            	e1.printStackTrace();
             }
         } finally {
             try {
                 pst.close();
                 connection.close();
             } catch (SQLException e) {
+            	e.printStackTrace();
             }
         }
 
@@ -101,23 +103,30 @@ public class SalaDAO extends AbstractJdbcDAO {
 
     @Override
     public List<EntidadeDominio> Consultar(EntidadeDominio entidade) {
-        openConnection();
+    	openConnection();
         PreparedStatement pst = null;
-        Sala sala = (Sala) entidade;
-
+        Sala sal = (Sala) entidade;
+        List<EntidadeDominio> list = null;
         try {
             connection.setAutoCommit(false);
-
+            list = new ArrayList<EntidadeDominio>();
+            
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT FROM sala (id_sal, id_cd_sal, id_tp_sal,id_cap_sal) WHERE ?");
-
+            sql.append("SELECT * FROM sala");
+            
             pst = connection.prepareStatement(sql.toString());
-            pst.setInt(1, sala.getId());
-            pst.setString(2, sala.getCodigo());
-            pst.setString(3, sala.getTipo());
-            pst.setInt(4, sala.getCapacidade());
-            pst.executeUpdate();
-            connection.commit();
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+            	Sala sala = new Sala();
+            	sala.setId(rs.getInt("id_sal"));
+            	sala.setCodigo(rs.getString("id_cd_sal"));
+            	sala.setTipo(rs.getString("id_tp_sal"));
+            	sala.setCapacidade(rs.getInt("id_cap_sal"));
+	            
+	            list.add(sala);
+            }
+            return list;
         } catch (SQLException e) {
             try {
                 connection.rollback();
@@ -133,15 +142,4 @@ public class SalaDAO extends AbstractJdbcDAO {
         return null;
     }
 
-	@Override
-	public void salvar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void alterar(EntidadeDominio entidade) {
-		// TODO Auto-generated method stub
-		
-	}
 }

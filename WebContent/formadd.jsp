@@ -36,25 +36,25 @@
 	<div id="footer">
 		<div class="container medium" id="contato">
 			<header class="major last">
-				<form method="get" action="SalvarTudo">
+				<form method="get" action="Salvar">
 					<label align="left">Sala</label>	<br>
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
 							<select required="" id="txtCodigo" name='txtCodigo'>
 								<option value="">Selecione o codigo da sala</option>
-								<option value="l">Sala 01</option>
-								<option value="10">Sala 02</option>
-								<option value="12">Sala 03</option>
-								<option value="16">Sala 04</option>
-								<option value="18">Sala 05</option>
-								<option value="18">Sala 06</option>
+								<option value="1">Sala 01</option>
+								<option value="2">Sala 02</option>
+								<option value="3">Sala 03</option>
+								<option value="4">Sala 04</option>
+								<option value="5">Sala 05</option>
+								<option value="6">Sala 06</option>
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<select name="tipo" required="">
+							<select name='tipo' required="" id="tipo">
 								<option value="">Selecione o tipo da sala</option>
-								<option value="">comum</option>
-								<option value="">VIP</option>
+								<option value="1">comum</option>
+								<option value="2">VIP</option>
 						 </select>
 							</div>
 						<div class="col-12">
@@ -79,10 +79,10 @@
 							<input type="text" name="valorI" required="" placeholder="Digite o valor da entrada inteira" />
 						</div>
 						<div class="col-12">
-							<input placeholder="Selecione data inicial de exibição" type="date" required="required"  maxlength="10" name="dtI" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
+							<input placeholder="Selecione data inicial de exibicao" type="date" required="required"  maxlength="10" name="dtI" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
 						</div>
-						<div class="col-6 col-12-mobilep">
-							<input type="text" name="dtS" required="" placeholder="Digite a data final da exibição">
+						<div class="col-12">
+							<input placeholder="Selecione data final de exibicao" type="date" required="required"  maxlength="10" name="dtS" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
 						</div>
 						<div class="col-6 col-12-mobilep">
 							<textarea name="horarios" required="" placeholder="Digite horários das sessões"></textarea>
@@ -95,18 +95,17 @@
 							<input type="text" name="ano" placeholder="Digite o ano de estreia" required=""/>
 						</div>
 						<div class="col-6 col-12-mobilep">
-							<input type="text" name="duracao" placeholder="Digite a duração do filme" required=""/>
+							<input type="text" name="duracao" placeholder="Digite o diretor do filme" required=""/>
+						</div>
+						<div class="col-6 col-12-mobilep">
+							<input type="text" name="diretor" placeholder="Digite a duração do filme" required=""/>
 						</div>
 						<div class="col-12">
 							<textarea name="elenco" placeholder="Digite o elenco principal do filme" required=""></textarea>
 						</div>
 						<div class="col-12">
 							<textarea name="sinopse" placeholder="Digite a sinopse do filme em cartaz" required=""></textarea>
-						</div>
-						<div class="col-12">
-							<!-- <label align="left" for="myfile" required="">Clique aqui para selecionar arquivo do cartaz</label>
-								  <input type="file" id="myfile" name="file" accept="image/*" required="required" ><br><br> -->
-							</div>
+						</div>						
 			
 						<div class="col-12">
 							<ul class="actions special">

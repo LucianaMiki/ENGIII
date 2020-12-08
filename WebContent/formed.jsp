@@ -32,7 +32,7 @@
 	<div id="footer">
 		<div class="container medium" id="contato">
 			<header class="major last">
-				<form method="post" action="#" >
+				<form method="post" action="Salvar" >
 					<label align ="left">Sala</label>	<br>
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
@@ -79,10 +79,6 @@
 						</div>
 						<div class="col-12">
 							<textarea name="sinopse" placeholder="Digite a sinopse do filme em cartaz"required=""></textarea>
-						</div>
-						<div class="col-12">
-						<label align="left" for="myfile">Clique aqui para selecionar arquivo do cartaz</label>
-  							<input type="file" id="myfile" name="file"><br><br>
 						</div>
 					
 						<div class="col-12">

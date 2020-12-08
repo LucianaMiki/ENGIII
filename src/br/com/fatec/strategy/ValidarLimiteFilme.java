@@ -11,9 +11,9 @@ public class ValidarLimiteFilme implements IStrategy {
 
         Filme filme = (Filme) entidade;
         IDAO dao = new FilmeDAO();
-
-        if (dao.Consultar(filme).size() >= 6) {
-            return "Filme  ja cadastrado!";
+        
+        if (dao.Consultar(filme).size() >= 20) {
+            return "Numero limite de filmes cadastrados alcancado!";
         }
 
         return null;

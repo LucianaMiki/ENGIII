@@ -15,16 +15,15 @@ import br.com.fatec.dominio.Resultado;
 
 public class FilmeVH implements IViewHelper {
 
-	@Override
-	public EntidadeDominio getEntidade(HttpServletRequest request) {
+	public static EntidadeDominio getEntidade(HttpServletRequest request) {
 		String txtTitulo = request.getParameter("titulo");
-		String txtEstreia = request.getParameter("estreia");
-		String txtAno = request.getParameter("ano");
+		String txtEstreia = request.getParameter("ano");
 		String txtDuracao = request.getParameter("duracao");
+		String txtDiretor = request.getParameter("diretor");
 		String txtElenco = request.getParameter("elenco");
 		String txtSinopse = request.getParameter("sinopse");
 		
-		Filme filme = new Filme(txtTitulo, txtEstreia, txtAno, txtDuracao, txtElenco, txtSinopse);
+		Filme filme = new Filme(txtTitulo, txtEstreia, txtDuracao, txtDiretor, txtElenco, txtSinopse);
 		return filme;
 
 	}

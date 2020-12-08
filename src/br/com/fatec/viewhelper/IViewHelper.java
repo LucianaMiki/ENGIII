@@ -11,7 +11,10 @@ import br.com.fatec.dominio.EntidadeDominio;
 
 public interface IViewHelper {
 	
-	public EntidadeDominio getEntidade(HttpServletRequest request);
+	public static EntidadeDominio getEntidade(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	public void setView(Object resultado,
 			HttpServletRequest request,

@@ -1,5 +1,4 @@
 package br.com.fatec.viewhelper;
-/*package ViewHelper;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,22 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Dominio.EntidadeDominio;
-import Dominio.Filme;
-import Dominio.Func;
-import Dominio.Resultado;
-import Dominio.Sala;
-import Dominio.Sessao;
+import br.com.fatec.dominio.Sala;
+import br.com.fatec.dominio.EntidadeDominio;
+import br.com.fatec.dominio.Filme;
+import br.com.fatec.dominio.Sessao;
 
 
 public class SessaoVH implements IViewHelper {
 
-	@Override
-	public EntidadeDominio getEntidade(HttpServletRequest request) {
+	public static EntidadeDominio getEntidade(HttpServletRequest request) {
 		float txtValorM = Float.parseFloat(request.getParameter("valorM"));
 		float txtValorI = Float.parseFloat(request.getParameter("valorI"));
 		String txtDtI = request.getParameter("dtI");
-		String txtDtS = request.getParameter("DtS");
+		String txtDtS = request.getParameter("dtS");
 		Integer txtHorarios = Integer.parseInt(request.getParameter("horarios"));
 		
 		Sessao sessao = new Sessao(txtValorM, txtValorI, txtDtI, txtDtS, txtHorarios);
@@ -33,7 +29,7 @@ public class SessaoVH implements IViewHelper {
 	}
 
 	@Override
-	public void setView(Resultado resultado, HttpServletRequest request, HttpServletResponse response)
+	public void setView(Object resultado, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
 		PrintWriter out;
 		try {
@@ -49,4 +45,4 @@ public class SessaoVH implements IViewHelper {
 		}	
 
 	}
-}*/
+}
