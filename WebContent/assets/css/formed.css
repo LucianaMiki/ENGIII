@@ -12,7 +12,7 @@ form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video{
+section, summary, time, mark, audio, video, .buttonGo{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -2056,44 +2056,12 @@ input, select, textarea {
 			footer.major:after {
 				bottom: 10px;
 			}
-			.tooltip {
-				position: relative;
-				display: inline-block;
-				border-bottom: 1px dotted black;
-			  }
-			  
-			  .tooltip .tooltiptext {
-				visibility: hidden;
-				width: 300px;
-				background-color: #555;
-				color: #fff;
-				text-align: center;
-				border-radius: 6px;
-				position: absolute;
-				bottom: 125%;
-				left: 0%;
-				opacity: 0;
-				transition: opacity 0.3s;
-			  }
-			  
-			  .tooltip .tooltiptext::after {
-				content: "";
-				position: center;
-				top: 100%;
-				left: 0%;
-				border-style: solid;
-				border-color: #555 transparent transparent transparent;
-			  }
-			  
-			  .tooltip:hover .tooltiptext {
-				visibility: visible;
-				opacity: 1;
-			  }
-			  
+
 /* Form */
 
 	label {
 		display: block;
+		color: #fffefe;
 		font-size: 0.8em;
 		font-weight: 700;
 		letter-spacing: 0.125em;
@@ -2102,17 +2070,20 @@ input, select, textarea {
 		margin: 0 0 0.5em 0;
 	}
 
-	input[type='file'] {
-		display: none;
-		cursor: pointer;
+	input[type="date"]:before {
+		color: #4eb980;
+		content: attr(placeholder) !important;
+		margin-right: 0.5em;
 	  }
-	  
+	  input[type="date"]:focus:before {
+		content: '' !important;
+	  }
 
-	input [type="file"],
 	input[type="text"],
+	input[type="date"],
+	input[type="file"],
 	input[type="password"],
 	input[type="email"],
-	input[type="datetime-local"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -2141,7 +2112,6 @@ input, select, textarea {
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
-		input[type="datetime-local"],
 		select:focus,
 		textarea:focus {
 			background: rgba(248, 240, 240, 0.15);
@@ -2151,7 +2121,6 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	input[type="datetime-local"],
 	select {
 		line-height: 1em;
 	}
@@ -2338,18 +2307,18 @@ input, select, textarea {
 			padding-left: 0.25em;
 		}
 
-	ul.default {
+	ul.default, button {
 		list-style: disc;
 		padding-left: 1em;
 	}
 
-		ul.default li {
+		ul.default li, button {
 			padding-left: 0.5em;
 		}
 
 /* Actions */
 
-	ul.actions {
+	ul.actions, button {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -2360,12 +2329,12 @@ input, select, textarea {
 		padding-left: 0;
 	}
 
-		ul.actions li {
+		ul.actions li, button {
 			padding: 0 0 0 1em;
 			vertical-align: middle;
 		}
 
-		ul.actions.special {
+		ul.actions.special, button {
 			-moz-justify-content: center;
 			-webkit-justify-content: center;
 			-ms-justify-content: center;
@@ -2374,11 +2343,11 @@ input, select, textarea {
 			margin-left: 0;
 		}
 
-			ul.actions.special li:first-child {
+			ul.actions.special li:first-child, button {
 				padding-left: 0;
 			}
 
-		ul.actions.stacked {
+		ul.actions.stacked, button {
 			-moz-flex-direction: column;
 			-webkit-flex-direction: column;
 			-ms-flex-direction: column;
@@ -2386,19 +2355,19 @@ input, select, textarea {
 			margin-left: 0;
 		}
 
-			ul.actions.stacked li {
+			ul.actions.stacked li, button {
 				padding: 1.25em 0 0 0;
 			}
 
-				ul.actions.stacked li:first-child {
+				ul.actions.stacked li:first-child, button {
 					padding-top: 0;
 				}
 
-		ul.actions.fit {
+		ul.actions.fit, button {
 			width: calc(100% + 1em);
 		}
 
-			ul.actions.fit li {
+			ul.actions.fit li, button {
 				-moz-flex-grow: 1;
 				-webkit-flex-grow: 1;
 				-ms-flex-grow: 1;
@@ -2410,21 +2379,21 @@ input, select, textarea {
 				width: 100%;
 			}
 
-				ul.actions.fit li > * {
+				ul.actions.fit li, button > * {
 					width: 100%;
 				}
 
-			ul.actions.fit.stacked {
+			ul.actions.fit.stacked, button {
 				width: 100%;
 			}
 
-		ul.actions:last-child {
+		ul.actions:last-child, button {
 			margin-bottom: 0;
 		}
 
 		@media screen and (max-width: 736px) {
 
-			ul.actions:not(.fixed) {
+			ul.actions:not(.fixed), button {
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;
 				-ms-flex-direction: column;
@@ -2433,7 +2402,7 @@ input, select, textarea {
 				width: 100% !important;
 			}
 
-				ul.actions:not(.fixed) li {
+				ul.actions:not(.fixed) li, button {
 					-moz-flex-grow: 1;
 					-webkit-flex-grow: 1;
 					-ms-flex-grow: 1;
@@ -3395,7 +3364,6 @@ input, select, textarea {
 	}
 	
 	.campo input[type="text"],
-	.campo input[type="datetime-local"],
 	.campo input[type="email"],
 	.campo input[type="url"],
 	.campo input[type="tel"],
@@ -3419,6 +3387,27 @@ input, select, textarea {
 		color: #000;
 		display: inline-block;
 		margin-right: 1em;
+	}
+	
+	.botao {
+		font-size: 1.5em;
+		background: #F90;
+		border: 0;
+		margin-bottom: 1em;
+		color: #FFF;
+		padding: 0.2em 0.6em;
+		box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	}
+	
+	.botao:hover {
+		background: #FB0;
+		box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+		text-shadow: none;
+	}
+	
+	.botao, select, label.checkbox {
+		cursor: pointer;
 	}
 	
 	#footer {
@@ -3457,132 +3446,51 @@ input, select, textarea {
 		  ul.breadcrumb li a:hover {
 			color: #4eb980;
 		  }
-
-		  		  
-		 /* #comboBox{
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			  }
-			  
-			  #comboBox body {
-				display: flex;
-				flex-direction: column;
-				width: 100%;
-				height: 100vh;
-				align-items: center;
-				justify-content: flex-start;
-				font-family: 'Ek Mukta';
-				text-transform: uppercase;
-				font-weight: 600;
-				letter-spacing: 4px;
-				background: #1D1F20;
-			  }
-			  
-			  #comboBox h1 {
-				margin-top: 10vh;
-				font-size: 2.5rem;
-				max-width: 500px;
-				letter-spacing: 3px;
-				text-align: center;
-				line-height: 1.5;
-				font-family: 'Open Sans';
-				text-transform: capitalize;
-				font-weight: 800;
-				color: #4eb980;
-				
-				span {
-				  color: #4eb980;
-				}
-			  }
-			  
-			  #comboBox form {
+		  
+		
+			 .tooltip {
 				position: relative;
-				width: 18rem;
-				margin-top: 8vh;
+				display: inline-block;
+				border-bottom: 1px dotted black;
 			  }
 			  
-			  .chosen-value,
-			  .value-list {
+			  .tooltip .tooltiptext {
+				visibility: hidden;
+				width: 300px;
+				background-color: #555;
+				color: #fff;
+				text-align: center;
+				border-radius: 6px;
 				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
+				bottom: 125%;
+				left: 0%;
+				opacity: 0;
+				transition: opacity 0.3s;
 			  }
 			  
-			  .chosen-value {
-				font-family: 'Ek Mukta';
-				text-transform: uppercase;
-				font-weight: 600;
-				letter-spacing: 4px;
-				height: 4rem;
-				font-size: 1.1rem;
-				padding: 1rem;
-				background-color: ##4eb980;
-				border: 3px solid transparent;
-				transition: .3s ease-in-out;
-				
-				&::-webkit-input-placeholder {
-				  color: #333;
-				}
-				
-				&:hover {
-				  background-color: #FF908B;
-				  cursor: pointer;
-				  
-				  &::-webkit-input-placeholder {
-					color: #333;
-				  }
-				}
-				
-				&:focus,
-				&.open {
-				  box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
-				  outline: 0;
-				  background-color: #FF908B;
-				  color: #000;
-				  
-				  &::-webkit-input-placeholder {
-					color: #000;
-				  }
-				}
+			  .tooltip .tooltiptext::after {
+				content: "";
+				position: center;
+				top: 100%;
+				left: 0%;
+				border-style: solid;
+				border-color: #555 transparent transparent transparent;
 			  }
 			  
-			  .value-list {
-				list-style: none;
-				margin-top: 4rem;
-				box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
-				overflow: hidden;
-				max-height: 0;
-				transition: .3s ease-in-out;
-				
-				&.open {
-				 max-height: 320px;
-				 overflow: auto;
-				}
-				
-				li {
-				  position: relative;
-				  height: 4rem;
-				  background-color: #FAFCFD;
-				  padding: 1rem;
-				  font-size: 1.1rem;
-				  display: flex;
-				  align-items: center;
-				  cursor: pointer;
-				  transition: background-color .3s;
-				  opacity: 1;
-				  
-				  &:hover {
-					background-color: #FF908B;
-				  }
-				  
-				  &.closed {
-					max-height: 0;
-					overflow: hidden;
-					padding: 0;
-					opacity: 0;
-				  }
-				
-			 */ 
+			  .tooltip:hover .tooltiptext {
+				visibility: visible;
+				opacity: 1;
+			  }
+			  input[type='file'] {
+				display: none
+			  }
+			
+.buttonGo{
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+	width: 100%;
+	margin-left: 0;
+}
+						  

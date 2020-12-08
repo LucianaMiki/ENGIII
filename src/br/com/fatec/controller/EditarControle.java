@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,7 @@ public class EditarControle extends Controle {
 	
 	public EditarControle() {}
 	
-	public static String Editar(HttpServletRequest request, String operacao) {
+	public static List<String> Editar(HttpServletRequest request, HttpServletResponse response, String operacao) {
 		// mano essa classe vai ter role pra caraio heim pqpppppppppppp
 		//vamo por partes
 		
@@ -106,7 +107,6 @@ public class EditarControle extends Controle {
 	    		sessao = (Sessao) listSessao.get(i);
 	    		Integer IdSessaoIf = sessao.getSalaId();
 	    		if(IdSala == IdSessaoIf) {
-	    			System.out.println("entrou");
 	    			IdSessao = sessao.getId();
 	    			valor_meiaJSP = sessao.getValor_meia();
 	    			valor_inteiraJSP = sessao.getValor_inteira();
@@ -121,13 +121,67 @@ public class EditarControle extends Controle {
 	    if(IdSessao != null) {
 	    	for(int i=0;i<listFilme.size();i++) {
 	    		filme = (Filme) listFilme.get(i);
-	    		Integer IdFilmeIf;
+	    		Integer IdFilmeIf = filme.getId();
+	    		if(IdFilme == IdFilmeIf) {
+	    			TituloJSP = filme.getTitulo();
+	    	        EstreiaJSP = filme.getEstreia();
+	    	        DuracaoJSP = filme.getDuracao();
+	    	        DiretorJSP = filme.getDiretor();
+	    	        ElencoJSP = filme.getElenco();
+	    	        SinopseJSP = filme.getSinopse();
+	    		}
 	    	}
 	    }
-        		
-        //filme = (Filme) listFilme.get(i);
-        //sessao = (Sessao) listSessao.get(i);
+	    
+	    List<String> lista = new ArrayList<String>(); 
+	    lista.add(CodigoJSP.toString());
+	    lista.add(TipoJSP.toString());
+	    lista.add(CapacidadeJSP.toString());
+	    lista.add(valor_meiaJSP.toString());
+	    lista.add(valor_inteiraJSP.toString());
+	    lista.add(dt_inicioJSP.toString());
+	    lista.add(dt_fimJSP.toString());
+	    lista.add(fxeJSP.toString());
+	    lista.add(TituloJSP.toString());
+	    lista.add(EstreiaJSP.toString());
+	    lista.add(DuracaoJSP.toString());
+	    lista.add(DiretorJSP.toString());
+	    lista.add(ElencoJSP.toString());
+	    lista.add(SinopseJSP.toString());
+
+	    return lista;
+	}
+	
+	public static void Alterar (HttpServletRequest request) {
+		Fachada fachada = new Fachada();
+		StringBuilder msg = new StringBuilder();
 		
-		return null;
+		Filme filme = new Filme();
+		EntidadeDominio entidade = filme;
+		entidade = FilmeVH.getEntidade(request);
+		Filme filmePop = (Filme) entidade;
+		msg.append(fachada.Alterar(filmePop));
+		
+		
+		Sala sala = new Sala();
+		entidade = sala;
+		entidade = SalaVH.getEntidade(request);
+		Sala salaPop = (Sala) entidade;
+		msg.append(fachada.Inserir(salaPop));
+		
+		Sessao sessao = new Sessao();
+		entidade = sessao;
+		entidade = SessaoVH.getEntidade(request);
+		Sessao sessaoPop = (Sessao) entidade;
+		sessaoPop.setSalaId(salaPop.getId());
+		sessaoPop.setFilmeId(filmePop.getId());
+	
+		msg.append(fachada.Inserir(sessaoPop));
+
+		
+		String result = msg.toString();
+		
+		//return result;
+		
 	}
 }

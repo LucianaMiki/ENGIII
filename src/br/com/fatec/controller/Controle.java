@@ -3,6 +3,7 @@ package br.com.fatec.controller;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -29,16 +30,9 @@ import br.com.fatec.controller.InserirControle;
 public class Controle extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String operacao = null;
-    private static Map<String, ICommand> commands;
-    private static Map<String, IViewHelper> vhs;
-    
+
     public Controle() {
     	super();
-		commands = new HashMap<String, ICommand>();
-		commands.put("CADASTRAR", new InserirCommand());
-		commands.put("EXCLUIR", new ExcluirCommand());	
-		//commands.put("CONSULTAR", new ConsultarCommand());
-		commands.put("EDITAR", new AlterarCommand());
 		
     }
     
@@ -58,8 +52,27 @@ public class Controle extends HttpServlet {
     	}
     	
 	    if(operacao.substring(0,6).equals("Editar")) {
-	    	String acao = null;
-	    	acao = EditarControle.Editar(request, operacao); 
+	    	List<String> atributos = EditarControle.Editar(request, response, operacao); 
+	    	request.setAttribute("Codigo", atributos.get(0));
+	    	request.setAttribute("Tipo", atributos.get(1));
+	    	request.setAttribute("Capacidade", atributos.get(2));
+	    	request.setAttribute("vm", atributos.get(3));
+	    	request.setAttribute("vi", atributos.get(4));
+	    	request.setAttribute("dti", atributos.get(5));
+	    	request.setAttribute("dtf", atributos.get(6));
+	    	request.setAttribute("fxe", atributos.get(7));
+	    	request.setAttribute("Titulo", atributos.get(8));
+	    	request.setAttribute("Estreia", atributos.get(9));
+	    	request.setAttribute("Duracao", atributos.get(10));
+	    	request.setAttribute("Diretor", atributos.get(11));
+	    	request.setAttribute("Elenco", atributos.get(12));
+	    	request.setAttribute("Sinopse", atributos.get(13));
+	    	
+	    	request.getRequestDispatcher("/formed.jsp"). forward (request, response);
+	    }
+	    
+	    if(operacao.equals("EDITAR")) {
+	    	EditarControle.Alterar(request); 
 	    }
   
     	/*else {

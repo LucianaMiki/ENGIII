@@ -22,9 +22,9 @@ public class SessaoVH implements IViewHelper {
 		float txtValorI = Float.parseFloat(request.getParameter("valorI"));
 		String txtDtI = request.getParameter("dtI");
 		String txtDtS = request.getParameter("dtS");
-		Integer txtHorarios = Integer.parseInt(request.getParameter("horarios"));
+		Integer txtFxe = Integer.parseInt(request.getParameter("faixaE"));
 		
-		Sessao sessao = new Sessao(txtValorM, txtValorI, txtDtI, txtDtS, txtHorarios);
+		Sessao sessao = new Sessao(txtValorM, txtValorI, txtDtI, txtDtS, txtFxe);
 		return sessao;
 	}
 
