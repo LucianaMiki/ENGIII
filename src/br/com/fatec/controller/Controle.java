@@ -19,7 +19,6 @@ import br.com.fatec.command.ExcluirCommand;
 import br.com.fatec.command.ICommand;
 import br.com.fatec.command.InserirCommand;
 import br.com.fatec.dominio.EntidadeDominio;
-import br.com.fatec.dominio.Resultado;
 import br.com.fatec.viewhelper.IViewHelper;
 import br.com.fatec.viewhelper.FilmeVH;
 import br.com.fatec.viewhelper.SalaVH;

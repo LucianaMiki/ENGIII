@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import br.com.fatec.dominio.EntidadeDominio;
 import br.com.fatec.dominio.Filme;
-import br.com.fatec.dominio.Resultado;
 
 public class FilmeVH implements IViewHelper {
 

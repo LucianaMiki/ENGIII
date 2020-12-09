@@ -60,19 +60,11 @@
 	<div id="main">
 
 		<header class="major container medium">
-			<h2>Essa Ã¡rea Ã© reservada apenas a funcionÃ¡rois com permissÃ£o de acesso</h2>
-			<p>Cadastre uma nova informaÃ§Ã£o pelo botÃ£o principal ou veja mais aÃ§Ãµes direcionadas</p>
+			<h2>Essa área está reservada apenas a funcionários com permissão de acesso</h2>
+			<p>Cadastre uma nova informaçãoo pelo botão principal ou veja mais opções direcionadas</p>
 		</header>
 		<div class="box alt container">
 			<ul class="actions special">
-				<li>
-					<div id="busca">
-						<form class="form-inline">
-							<input class="form-control shadow-sm" type="text" placeholder="Pesquisar">
-
-						</form>
-					</div>
-				</li>
 				<li><input type="submit" value="Cadastrar Novo Agendamento" id="btnadd" onClick="window.location.href='formadd.jsp'"/></li>
 			</ul><br>
 			<form method="get" action="Salvar">
@@ -92,6 +84,12 @@
 									sala1 = sala;
 								}
 							}
+							if(aux == null){
+								out.print("<p>Título do filme: Nada cadastrado" 
+										+ "<br>Faixa etária: Nada cadastrado" 
+										+ "<br>Duração: Nada cadastrado" 
+										+ "<br>Horário: Nada cadastrado");
+							}else{
 							for(int i = 0; i<listSessao.size(); i++){
 								sessao = (Sessao) listSessao.get(i);
 								Integer numSala = (sessao.getSalaId());
@@ -120,8 +118,9 @@
 								+ "<br>Faixa etária: " 
 								+ fxeString 
 								+ "<br>Duração: " 
-								+ filme1.getDuracao()
+								+ filme1.getDiretor()
 								+ "<br>Horário: 19:00");
+							}
 						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 01"/></li>
@@ -145,6 +144,12 @@
 									sala2 = sala;
 								}
 							}
+							if(aux2 == null){
+								out.print("<p>Título do filme: Nada cadastrado" 
+										+ "<br>Faixa etária: Nada cadastrado" 
+										+ "<br>Duração: Nada cadastrado" 
+										+ "<br>Horário: Nada cadastrado");
+							}else{
 							for(int i = 0; i<listSessao.size(); i++){
 								sessao = (Sessao) listSessao.get(i);
 								Integer numSala = (sessao.getSalaId());
@@ -173,8 +178,9 @@
 								+ "<br>Faixa etária: " 
 								+ fxeString2
 								+ "<br>Duração: " 
-								+ filme2.getDuracao()
+								+ filme2.getDiretor()
 								+ "<br>Horário: 19:00");
+							}
 						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 02"/></li>
@@ -198,6 +204,12 @@
 									sala3 = sala;
 								}
 							}
+							if(aux3 == null){
+								out.print("<p>Título do filme: Nada cadastrado" 
+										+ "<br>Faixa etária: Nada cadastrado" 
+										+ "<br>Duração: Nada cadastrado" 
+										+ "<br>Horário: Nada cadastrado");
+							}else{
 							for(int i = 0; i<listSessao.size(); i++){
 								sessao = (Sessao) listSessao.get(i);
 								Integer numSala = (sessao.getSalaId());
@@ -226,8 +238,9 @@
 								+ "<br>Faixa etária: " 
 								+ fxeString3
 								+ "<br>Duração: " 
-								+ filme3.getDuracao()
+								+ filme3.getDiretor()
 								+ "<br>Horário: 19:00");
+							}
 						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 03"/></li>
@@ -256,38 +269,39 @@
 										+ "<br>Faixa etária: Nada cadastrado" 
 										+ "<br>Duração: Nada cadastrado" 
 										+ "<br>Horário: Nada cadastrado");
-							}
+							}else{
 							
-							for(int i = 0; i<listSessao.size(); i++){
-								sessao = (Sessao) listSessao.get(i);
-								Integer numSala = (sessao.getSalaId());
-								if(numSala == aux4) {
-									sessao4 = sessao;
+								for(int i = 0; i<listSessao.size(); i++){
+									sessao = (Sessao) listSessao.get(i);
+									Integer numSala = (sessao.getSalaId());
+									if(numSala == aux4) {
+										sessao4 = sessao;
+									}
 								}
-							}
-							for(int i = 0; i<listFilme.size(); i++){
-								filme = (Filme) listFilme.get(i);
-								Integer numFilme = (sessao4.getFilmeId());
-								if(numFilme == filme.getId()) {
-									filme4 = filme;
+								for(int i = 0; i<listFilme.size(); i++){
+									filme = (Filme) listFilme.get(i);
+									Integer numFilme = (sessao4.getFilmeId());
+									if(numFilme == filme.getId()) {
+										filme4 = filme;
+									}
 								}
+								
+								Integer fxeInt4 = sessao1.getFxe();
+								String fxeString4 = null;
+								if(fxeInt4 == 1) fxeString4 = "L";
+								if(fxeInt4 == 2) fxeString4 = "10";
+								if(fxeInt4 == 3) fxeString4 = "12";
+								if(fxeInt4 == 4) fxeString4 = "16";
+								if(fxeInt4 == 5) fxeString4 = "18";
+	
+								out.print("<p>Título do filme: " 
+									+ filme4.getTitulo() 
+									+ "<br>Faixa etária: " 
+									+ fxeString4
+									+ "<br>Duração: " 
+									+ filme4.getDiretor()
+									+ "<br>Horário: 19:00");
 							}
-							
-							Integer fxeInt4 = sessao1.getFxe();
-							String fxeString4 = null;
-							if(fxeInt4 == 1) fxeString4 = "L";
-							if(fxeInt4 == 2) fxeString4 = "10";
-							if(fxeInt4 == 3) fxeString4 = "12";
-							if(fxeInt4 == 4) fxeString4 = "16";
-							if(fxeInt4 == 5) fxeString4 = "18";
-
-							out.print("<p>Título do filme: " 
-								+ filme4.getTitulo() 
-								+ "<br>Faixa etária: " 
-								+ fxeString4
-								+ "<br>Duração: " 
-								+ filme4.getDuracao()
-								+ "<br>Horário: 19:00");
 						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 04"/></li>
@@ -311,6 +325,12 @@
 									sala5 = sala;
 								}
 							}
+							if(aux5 == null){
+								out.print("<p>Título do filme: Nada cadastrado" 
+										+ "<br>Faixa etária: Nada cadastrado" 
+										+ "<br>Duração: Nada cadastrado" 
+										+ "<br>Horário: Nada cadastrado");
+							}else{
 							for(int i = 0; i<listSessao.size(); i++){
 								sessao = (Sessao) listSessao.get(i);
 								Integer numSala = (sessao.getSalaId());
@@ -339,8 +359,9 @@
 								+ "<br>Faixa etária: " 
 								+ fxeString5
 								+ "<br>Duração: " 
-								+ filme5.getDuracao()
+								+ filme5.getDiretor()
 								+ "<br>Horário: 19:00");
+							}
 						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 05"/></li>
@@ -364,6 +385,12 @@
 									sala6 = sala;
 								}
 							}
+							if(aux6 == null){
+								out.print("<p>Título do filme: Nada cadastrado" 
+										+ "<br>Faixa etária: Nada cadastrado" 
+										+ "<br>Duração: Nada cadastrado" 
+										+ "<br>Horário: Nada cadastrado");
+							}else{
 							for(int i = 0; i<listSessao.size(); i++){
 								sessao = (Sessao) listSessao.get(i);
 								Integer numSala = (sessao.getSalaId());
@@ -392,8 +419,9 @@
 								+ "<br>Faixa etária: " 
 								+ fxeString6
 								+ "<br>Duração: " 
-								+ filme6.getDuracao()
+								+ filme6.getDiretor()
 								+ "<br>Horário: 19:00");
+							}
 						%>
 						<ul class="actions special">
 							<li><input type="button" name="operacao" value="Editar Sala 06"/></li>

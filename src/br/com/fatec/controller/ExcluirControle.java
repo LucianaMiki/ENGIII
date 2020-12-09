@@ -25,7 +25,6 @@ import br.com.fatec.dao.SalaDAO;
 import br.com.fatec.dao.SessaoDAO;
 import br.com.fatec.dominio.EntidadeDominio;
 import br.com.fatec.dominio.Filme;
-import br.com.fatec.dominio.Resultado;
 import br.com.fatec.dominio.Sala;
 import br.com.fatec.dominio.Sessao;
 import br.com.fatec.viewhelper.IViewHelper;

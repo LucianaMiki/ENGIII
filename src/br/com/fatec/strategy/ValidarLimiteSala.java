@@ -10,7 +10,7 @@ public class ValidarLimiteSala implements IStrategy{
 
         Sala sala = (Sala) entidade;
 	IDAO dao = new SalaDAO();
-	if(dao.Consultar(sala).size() >= 20) {
+	if(dao.Consultar(sala).size() >= 6) {
 	return "Limite de Sala ja atingido!";
 	}
 	return null;

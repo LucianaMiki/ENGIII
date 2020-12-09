@@ -22,15 +22,15 @@
 <body class="is-preload">
 	<!-- Breadcrumb -->
 	<ul class="breadcrumb">
-		<li><a href="func.html">LISTAGEM</a></li>
+		<li><a href="func.jsp">LISTAGEM</a></li>
 		<li>EDITAR</li>
 	</ul>
 
 	<!-- Main -->
 	<div id="main">
 		<header class="major container medium">
-			<div class="tooltip"><h2>AlteraÃ§Ã£o de Agendamento</h2>
-			<span class="tooltiptext">Ao alterar os dados anteriores Ã© possÃ­vel recuperÃ¡-los pelo botÃ£o de redefiniÃ§Ã£o, mas apenas antes da confirmaÃ§Ã£o</span>
+			<div class="tooltip"><h2>Alteração de Agendamento</h2>
+			<span class="tooltiptext">Ao alterar os dados anteriores não é possível recuperá-los pelo botão de redefinição, mas apenas antes da confirmação</span>
 			  </div>
 		</header>
 	</div>
@@ -43,11 +43,13 @@
 					<label align ="left">Sala</label>	<br>
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
+							<div>Código da sala</div>
 							<select required="" id="txtCodigo" name='txtCodigo'>
 								<option value="<%=request.getAttribute("Codigo")%>"><%=request.getAttribute("Codigo")%></option>
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">
+							<div>Tipo da sala</div>
 							<select name='tipo' required="" id="tipo">
 								<option value=""><%=request.getAttribute("Tipo")%></option>
 								<option value="1">comum</option>
@@ -55,11 +57,13 @@
 						 </select>
 							</div>
 						<div class="col-12">
+							<div>Capacidade da sala (Digite 1 para capacidade total 25)</div>
 							<input type="text" name="capacidade" required="" placeholder="<%=request.getAttribute("Capacidade")%>" />
 						</div>
 						</select>
 						<label>SessÃ£o</label><br>
 						<div class="col-12">
+							<div>Faixa etária</div>
 							<select name="faixaE" required="">
 								<option value=""><%=request.getAttribute("fxe")%></option>
 								<option value="1">L</option>
@@ -70,34 +74,44 @@
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">
+							<div>Valor da meia entrada</div>
 							<input type="text" name="valorM" placeholder="<%=request.getAttribute("vm")%>" />
 						</div>
 						<div class="col-6 col-12-mobilep">
+							<div>Valor da entrada inteira</div>
 							<input type="text" name="valorI" required="" placeholder="<%=request.getAttribute("vi")%>" />
 						</div>
 						<div class="col-12">
+							<div>Data inicial da exibição</div>
 							<input placeholder="<%=request.getAttribute("dti")%>" type="date" required="required"  maxlength="10" name="dtI" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
 						</div>
 						<div class="col-12">
+							<div>Data final da exibição</div>
 							<input placeholder="<%=request.getAttribute("dtf")%>" type="date" required="required"  maxlength="10" name="dtS" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="2020-01-01" max="2021-06-01" >
 						</div>
 						<label>Filme</label><br>
 						<div class="col-12">
+							<div>Título do filme</div>
 							<input type="text" name="titulo" placeholder="<%=request.getAttribute("Titulo")%>"required="">
 						</div>
 						<div class="col-6 col-12-mobilep">
+							<div>Ano de estreia</div>
 							<input type="text" name="ano" placeholder="<%=request.getAttribute("Estreia")%>" required=""/>
 						</div>
 						<div class="col-6 col-12-mobilep">
+							<div>Diretor</div>
 							<input type="text" name="duracao" placeholder="<%=request.getAttribute("Duracao")%>" required=""/>
 						</div>
-						<div class="col-6 col-12-mobilep">
+						<div class="col-12">
+							<div>Duração</div>
 							<input type="text" name="diretor" placeholder="<%=request.getAttribute("Diretor")%>" required=""/>
 						</div>
 						<div class="col-12">
+							<div>Elenco principal</div>
 							<textarea name="elenco" placeholder="<%=request.getAttribute("Elenco")%>" required=""></textarea>
 						</div>
 						<div class="col-12">
+							<div>Sinopse</div>
 							<textarea name="sinopse" placeholder="<%=request.getAttribute("Sinopse")%>" required=""></textarea>
 						</div>	
 					
