@@ -77,13 +77,13 @@ public class FilmeDAO extends AbstractJdbcDAO{
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("UPDATE filme SET til=?, es=?, du=?, dire=?, elenco=?, si=?");
-            sql.append("WHERE id_fil=?");
+            sql.append("UPDATE filme SET titulo=?, estreia=?, duracao=?, diretor=?, elenco=?, sinopse=?");
+            sql.append("WHERE id_filme=?");
 
             pst = connection.prepareStatement(sql.toString());
             pst.setString(1, fil.getTitulo());
             pst.setString(2, fil.getEstreia());
-            //pst.setTime(3,fil.getDuracao());
+            pst.setString(3, fil.getDuracao());
             pst.setString(4, fil.getDiretor());
             pst.setString(5, fil.getElenco());
             pst.setString(6, fil.getSinopse());
@@ -108,7 +108,37 @@ public class FilmeDAO extends AbstractJdbcDAO{
 
     @Override
     public void excluir(EntidadeDominio entidade) {
+    	openConnection();
+        PreparedStatement pst = null;
+        Filme filme = (Filme) entidade;
+
+        try {
+            connection.setAutoCommit(false);
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("DELETE FROM filme ");
+            sql.append("WHERE id_filme=?");
+
+            pst = connection.prepareStatement(sql.toString());
+            pst.setInt(1, filme.getId());
+
+            pst.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+            }
+        } finally {
+            try {
+                pst.close();
+                connection.close();
+            } catch (SQLException e) {
+            }
+        }
     }
+    
+    
 
     @Override
     public List<EntidadeDominio> Consultar(EntidadeDominio entidade) {

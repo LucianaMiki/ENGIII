@@ -71,14 +71,13 @@ public class SalaDAO extends AbstractJdbcDAO {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("UPDATE sala SET id_cd_sal=?, id_tp_sal=?, id_cap_sal=?");
-            sql.append("WHERE id_sal=?");
+            sql.append("UPDATE sala SET id_tp_sal=?, id_cap_sal=?");
+            sql.append("WHERE id_cd_sal=?");
 
             pst = connection.prepareStatement(sql.toString());
-            pst.setString(1, sala.getCodigo());
-            pst.setString(2, sala.getTipo());
-            pst.setInt(3, sala.getCapacidade());
-            pst.setInt(4, sala.getId());
+            pst.setInt(1, Integer.parseInt(sala.getTipo()));
+            pst.setInt(2, sala.getCapacidade());
+            pst.setInt(3, Integer.parseInt(sala.getCodigo()));
 
             pst.executeUpdate();
             connection.commit();
@@ -99,6 +98,34 @@ public class SalaDAO extends AbstractJdbcDAO {
 
     @Override
     public void excluir(EntidadeDominio entidade) {
+    	openConnection();
+        PreparedStatement pst = null;
+        Sala sala = (Sala) entidade;
+
+        try {
+            connection.setAutoCommit(false);
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("DELETE FROM sala ");
+            sql.append("WHERE id_cd_sal=?");
+
+            pst = connection.prepareStatement(sql.toString());
+            pst.setInt(1, Integer.parseInt(sala.getCodigo()));
+
+            pst.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+            }
+        } finally {
+            try {
+                pst.close();
+                connection.close();
+            } catch (SQLException e) {
+            }
+        }
     }
 
     @Override

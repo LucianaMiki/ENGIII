@@ -44,13 +44,7 @@
 					<div class="row">
 						<div class="col-6 col-12-mobilep">
 							<select required="" id="txtCodigo" name='txtCodigo'>
-								<option value=""><%=request.getAttribute("Codigo")%></option>
-								<option value="1">Sala 01</option>
-								<option value="2">Sala 02</option>
-								<option value="3">Sala 03</option>
-								<option value="4">Sala 04</option>
-								<option value="5">Sala 05</option>
-								<option value="6">Sala 06</option>
+								<option value="<%=request.getAttribute("Codigo")%>"><%=request.getAttribute("Codigo")%></option>
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">
@@ -68,11 +62,11 @@
 						<div class="col-12">
 							<select name="faixaE" required="">
 								<option value=""><%=request.getAttribute("fxe")%></option>
-								<option value="l">L</option>
-								<option value="10">10</option>
-								<option value="12">12</option>
-								<option value="16">16</option>
-								<option value="18">18</option>
+								<option value="1">L</option>
+								<option value="2">10</option>
+								<option value="3">12</option>
+								<option value="4">16</option>
+								<option value="5">18</option>
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">

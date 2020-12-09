@@ -38,7 +38,7 @@ public class Controle extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-    	
+
     	operacao = request.getParameter("operacao");
     	if(operacao.equals("CADASTRAR")) {
     		String acao = null;
@@ -47,32 +47,40 @@ public class Controle extends HttpServlet {
     			response.sendRedirect(request.getContextPath() + "/func.jsp");
     			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
     		} else {
+    			response.sendRedirect(request.getContextPath() + "/formadd.jsp");
     			JOptionPane.showMessageDialog(null, acao );
     		}
     	}
     	
 	    if(operacao.substring(0,6).equals("Editar")) {
 	    	List<String> atributos = EditarControle.Editar(request, response, operacao); 
-	    	request.setAttribute("Codigo", atributos.get(0));
-	    	request.setAttribute("Tipo", atributos.get(1));
-	    	request.setAttribute("Capacidade", atributos.get(2));
-	    	request.setAttribute("vm", atributos.get(3));
-	    	request.setAttribute("vi", atributos.get(4));
-	    	request.setAttribute("dti", atributos.get(5));
-	    	request.setAttribute("dtf", atributos.get(6));
-	    	request.setAttribute("fxe", atributos.get(7));
-	    	request.setAttribute("Titulo", atributos.get(8));
-	    	request.setAttribute("Estreia", atributos.get(9));
-	    	request.setAttribute("Duracao", atributos.get(10));
-	    	request.setAttribute("Diretor", atributos.get(11));
-	    	request.setAttribute("Elenco", atributos.get(12));
-	    	request.setAttribute("Sinopse", atributos.get(13));
 	    	
 	    	request.getRequestDispatcher("/formed.jsp"). forward (request, response);
 	    }
 	    
 	    if(operacao.equals("EDITAR")) {
-	    	EditarControle.Alterar(request); 
+	    	String acao = null;
+	    	acao = EditarControle.Alterar(request); 
+	    	if(acao.equals("nullnullnull")) {
+    			response.sendRedirect(request.getContextPath() + "/func.jsp");
+    			JOptionPane.showMessageDialog(null, "Altercao realizada com sucesso!");
+    		} else {
+    			response.sendRedirect(request.getContextPath() + "/formed.jsp");
+    			JOptionPane.showMessageDialog(null, acao );
+    		}
+	    }
+	    
+	    if(operacao.substring(0,7).equals("Excluir")) {
+	    	String acao = null;
+	    	acao = ExcluirControle.Excluir(request, operacao);
+	    	System.out.println(acao);
+	    	if(acao.equals("nullnullnull")) {
+	    		response.sendRedirect(request.getContextPath() + "/func.jsp");
+    			JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+    		} else {
+    			response.sendRedirect(request.getContextPath() + "/func.jsp");
+    			JOptionPane.showMessageDialog(null, acao );
+    		}
 	    }
   
     	/*else {

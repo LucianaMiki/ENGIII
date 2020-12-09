@@ -65,11 +65,11 @@
 						<div class="col-12">
 							<select name="faixaE" required="">
 								<option value="">Selecione a faixa etária da sessão</option>
-								<option value="l">L</option>
-								<option value="10">10</option>
-								<option value="12">12</option>
-								<option value="16">16</option>
-								<option value="18">18</option>
+								<option value="1">L</option>
+								<option value="2">10</option>
+								<option value="3">12</option>
+								<option value="4">16</option>
+								<option value="5">18</option>
 							 </select>
 						</div>
 						<div class="col-6 col-12-mobilep">

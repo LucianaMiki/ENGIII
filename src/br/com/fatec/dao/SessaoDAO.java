@@ -74,8 +74,8 @@ public class SessaoDAO extends AbstractJdbcDAO {
             connection.setAutoCommit(false);
 
             StringBuilder sql = new StringBuilder();
-            sql.append("UPDATE sessao SET id_fxE_ses=?, id_fil=?, vm=?, vi=?, dti=?, dtf=?");
-            sql.append("WHERE id_ses=?");
+            sql.append("UPDATE sessao SET valor_meia=?, valor_inteira=?, dt_inicio=?, dt_fim=?, id_fxe_ses=?");
+            sql.append("WHERE id_sal=?");
 
             pst = connection.prepareStatement(sql.toString());
             pst.setFloat(1, ses.getValor_meia());
@@ -84,8 +84,6 @@ public class SessaoDAO extends AbstractJdbcDAO {
             pst.setString(4, ses.getDt_fim());
             pst.setInt(5, ses.getFxe());
             pst.setInt(6, ses.getSalaId());
-            pst.setInt(7, ses.getFilmeId());
-            pst.setInt(8, ses.getId());
 
             pst.executeUpdate();
             connection.commit();
@@ -106,6 +104,34 @@ public class SessaoDAO extends AbstractJdbcDAO {
 
     @Override
     public void excluir(EntidadeDominio entidade) {
+    	openConnection();
+        PreparedStatement pst = null;
+        Sessao sessao = (Sessao) entidade;
+
+        try {
+            connection.setAutoCommit(false);
+
+            StringBuilder sql = new StringBuilder();
+            sql.append("DELETE FROM sessao ");
+            sql.append("WHERE id_sal=?");
+
+            pst = connection.prepareStatement(sql.toString());
+            pst.setInt(1, sessao.getSalaId());
+
+            pst.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+            }
+        } finally {
+            try {
+                pst.close();
+                connection.close();
+            } catch (SQLException e) {
+            }
+        }
     }
     
     @Override

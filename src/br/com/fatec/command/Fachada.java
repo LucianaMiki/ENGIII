@@ -38,7 +38,6 @@ public class Fachada implements IFachada {
         daos = new HashMap<String, IDAO>();
         rns = new HashMap<String, List<IStrategy>>();
         
-        ValidaEmail vEmail = new ValidaEmail();
         ValidarExistenciaFilme vExiFilme = new ValidarExistenciaFilme();
         ValidarExistenciaSala vExiSala = new ValidarExistenciaSala();
         ValidarExistenciaSessao vExiSessao = new ValidarExistenciaSessao();
@@ -106,11 +105,42 @@ public class Fachada implements IFachada {
 		else
 			return null;
     }
+    
+    public String executarRegrasAlterar(EntidadeDominio entidade) {
+    	String nmClasse = entidade.getClass().getName();
+		StringBuilder msg = new StringBuilder();
+		
+		if(nmClasse.equals("br.com.fatec.dominio.Sala")) {
+			rns.remove("br.com.fatec.dominio.Sala");
+			List<IStrategy> rnsSala = new ArrayList<IStrategy>();
+			ValidarLimiteSala vLimSala = new ValidarLimiteSala();
+			rnsSala.add(vLimSala);
+			rns.put(Sala.class.getName(), rnsSala);
+		}
+		
+		List<IStrategy> regras = rns.get(nmClasse);
+
+		if (regras != null) {
+			for (IStrategy s : regras) {
+				String m = s.processar(entidade);
+
+				if (m != null) {
+					msg.append(m);
+					msg.append("\n");
+				}
+			}
+		}
+
+		if (msg.length() > 0)
+			return msg.toString();
+		else
+			return null;
+    }
 
     @Override
     public String Alterar(EntidadeDominio entidade) {
     	String nmClasse = entidade.getClass().getName();
-        String msg = executarRegras(entidade);
+        String msg = executarRegrasAlterar(entidade);
         if (msg == null) {
 			IDAO dao = daos.get(nmClasse);
 			dao.Alterar(entidade);
@@ -123,14 +153,15 @@ public class Fachada implements IFachada {
     @Override
     public String Excluir(EntidadeDominio entidade) {
     	String nmClasse = entidade.getClass().getName();
-        String msg = executarRegras(entidade);
-        if (msg == null) {
+        String msg = null;
+        try {
 			IDAO dao = daos.get(nmClasse);
 			dao.excluir(entidade);
-		} else {
-			return msg;
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "Nao foi possivel excluir...";
 		}
-		return null;
+		return msg;
 
     }
 

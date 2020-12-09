@@ -149,39 +149,99 @@ public class EditarControle extends Controle {
 	    lista.add(ElencoJSP.toString());
 	    lista.add(SinopseJSP.toString());
 
+	    request.setAttribute("Codigo", lista.get(0));
+	    request.setAttribute("Tipo", lista.get(1));
+    	request.setAttribute("Capacidade", lista.get(2));
+    	request.setAttribute("vm", lista.get(3));
+    	request.setAttribute("vi", lista.get(4));
+    	request.setAttribute("dti", lista.get(5));
+    	request.setAttribute("dtf", lista.get(6));
+    	request.setAttribute("fxe", lista.get(7));
+    	request.setAttribute("Titulo", lista.get(8));
+    	request.setAttribute("Estreia", lista.get(9));
+    	request.setAttribute("Duracao", lista.get(10));
+    	request.setAttribute("Diretor", lista.get(11));
+    	request.setAttribute("Elenco", lista.get(12));
+    	request.setAttribute("Sinopse", lista.get(13));
 	    return lista;
 	}
 	
-	public static void Alterar (HttpServletRequest request) {
+	public static String Alterar (HttpServletRequest request) {
 		Fachada fachada = new Fachada();
 		StringBuilder msg = new StringBuilder();
 		
 		Filme filme = new Filme();
-		EntidadeDominio entidade = filme;
-		entidade = FilmeVH.getEntidade(request);
-		Filme filmePop = (Filme) entidade;
-		msg.append(fachada.Alterar(filmePop));
-		
-		
 		Sala sala = new Sala();
-		entidade = sala;
-		entidade = SalaVH.getEntidade(request);
-		Sala salaPop = (Sala) entidade;
-		msg.append(fachada.Inserir(salaPop));
-		
 		Sessao sessao = new Sessao();
+		
+		EntidadeDominio entidade = sala;
+		entidade = SalaVH.getEntidade(request);
+		Sala salaPop = (Sala) entidade;	
+		msg.append(fachada.Alterar(salaPop));
+		
+		Integer numSala = Integer.parseInt(salaPop.getCodigo());
+		
+		EntidadeDominio entidadeFilme = (EntidadeDominio) filme;
+		EntidadeDominio entidadeSala = (EntidadeDominio) sala;
+		EntidadeDominio entidadeSessao = (EntidadeDominio) sessao;
+		
+		IDAO daoF = new FilmeDAO();
+		IDAO daoSa = new SalaDAO();
+		IDAO daoSe = new SessaoDAO();
+		
+		List<EntidadeDominio> listFilme = new ArrayList<EntidadeDominio>();
+		List<EntidadeDominio> listSala = new ArrayList<EntidadeDominio>();
+		List<EntidadeDominio> listSessao = new ArrayList<EntidadeDominio>();
+		
+        listFilme = daoF.Consultar(entidadeFilme);
+        listSala = daoSa.Consultar(entidadeSala);
+        listSessao = daoSe.Consultar(entidadeSessao);
+		
+        Integer IdSala = null;
+        
+        for(int i=0;i<listSala.size();i++) {
+	        sala = (Sala) listSala.get(i);
+	        
+	        Integer numSalaCerta = Integer.parseInt(sala.getCodigo());
+	        	
+	        if(numSala == numSalaCerta) {
+	        	IdSala = sala.getId();	
+	        }	
+	     }
+        
+        if(IdSala != null) {
+        	salaPop.setId(IdSala);
+        }
+        
 		entidade = sessao;
 		entidade = SessaoVH.getEntidade(request);
 		Sessao sessaoPop = (Sessao) entidade;
 		sessaoPop.setSalaId(salaPop.getId());
-		sessaoPop.setFilmeId(filmePop.getId());
 	
-		msg.append(fachada.Inserir(sessaoPop));
+		msg.append(fachada.Alterar(sessaoPop));
+		
+		Integer IdFilme = null;
+		
+		for(int i=0;i<listSessao.size();i++) {
+	        sessao = (Sessao) listSessao.get(i);
+	        
+	        Integer numSalaId = sessao.getSalaId();
+	        Integer numSalaIdCerto = sessaoPop.getSalaId();
+	        	
+	        if(numSalaId == numSalaIdCerto) {
+	        	IdFilme = sessao.getFilmeId();
+	        }	
+	     }
+		
+		entidade = filme;
+		entidade = FilmeVH.getEntidade(request);
+		Filme filmePop = (Filme) entidade;
+		filmePop.setId(IdFilme);
+		msg.append(fachada.Alterar(filmePop));
 
-		
 		String result = msg.toString();
-		
-		//return result;
+	
+		return result;
 		
 	}
 }

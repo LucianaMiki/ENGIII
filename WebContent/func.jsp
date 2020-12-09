@@ -1,3 +1,38 @@
+<%@page import="br.com.fatec.dominio.EntidadeDominio"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page isELIgnored ="false" %> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="br.com.fatec.dominio.Filme"%>
+<%@page import="br.com.fatec.dominio.Sala"%>
+<%@page import="br.com.fatec.dominio.Sessao"%>
+<%@page import="br.com.fatec.dao.FilmeDAO"%>
+<%@page import="br.com.fatec.dao.SalaDAO"%>
+<%@page import="br.com.fatec.dao.SessaoDAO"%>
+<%@page import="br.com.fatec.dao.IDAO"%>
+
+<%
+	Filme filme = new Filme();
+	Sala sala = new Sala();
+	Sessao sessao = new Sessao();
+	
+	EntidadeDominio entidadeFilme = (EntidadeDominio) filme;
+	EntidadeDominio entidadeSala = (EntidadeDominio) sala;
+	EntidadeDominio entidadeSessao = (EntidadeDominio) sessao;
+	
+	IDAO daoF = new FilmeDAO();
+	IDAO daoSa = new SalaDAO();
+	IDAO daoSe = new SessaoDAO();
+	
+	List<EntidadeDominio> listFilme = new ArrayList<EntidadeDominio>();
+	List<EntidadeDominio> listSala = new ArrayList<EntidadeDominio>();
+	List<EntidadeDominio> listSessao = new ArrayList<EntidadeDominio>();
+	
+	listFilme = daoF.Consultar(entidadeFilme);
+	listSala = daoSa.Consultar(entidadeSala);
+	listSessao = daoSe.Consultar(entidadeSessao);
+%>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -42,11 +77,52 @@
 			</ul><br>
 			<form method="get" action="Salvar">
 				<section class="feature left">
-					<a href="#" class="image icon solid "><img src="images/re.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 01</h3>
-						<p>O Senhor dos Aneis: A Sociedade do Anel<br>Fantasia/Aventura ‚Äß 03:48 ‚Äß Faixa Et√°ria: 12
-							<br>Sess√µes - 14:00, 18:30, 22:00</p>
+						<%
+							Integer aux = null;
+							Filme filme1 = (Filme) entidadeFilme;
+							Sala sala1 = (Sala) entidadeSala;
+							Sessao sessao1 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 1) {
+									aux = sala.getId();
+									sala1 = sala;
+								}
+							}
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux) {
+									sessao1 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao1.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme1 = filme;
+								}
+							}
+							
+							Integer fxeInt = sessao1.getFxe();
+							String fxeString = null;;
+							if(fxeInt == 1) fxeString = "L";
+							if(fxeInt == 2) fxeString = "10";
+							if(fxeInt == 3) fxeString = "12";
+							if(fxeInt == 4) fxeString = "16";
+							if(fxeInt == 5) fxeString = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme1.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString 
+								+ "<br>DuraÁ„o: " 
+								+ filme1.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 01"/></li>
 							<li><input type="submit" name="operacao" value="Excluir Sala 01" data-toggle="modal" data-target="#myModal" /></li>
@@ -54,11 +130,52 @@
 					</div>
 				</section>
 				<section class="feature right">
-					<a href="#" class="image icon solid "><img src="images/pic2.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 02</h3>
-						<p>O Senhor dos Aneis: As Duas Torres<br>Fantasia/Aventura ‚Äß 03:43 ‚Äß Faixa Et√°ria: 12 <br>Sess√µes -
-							12:00, 16:30, 21:00</p>
+						<%
+							Integer aux2 = null;
+							Filme filme2 = (Filme) entidadeFilme;
+							Sala sala2 = (Sala) entidadeSala;
+							Sessao sessao2 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 2) {
+									aux2 = sala.getId();
+									sala2 = sala;
+								}
+							}
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux2) {
+									sessao2 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao2.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme2 = filme;
+								}
+							}
+							
+							Integer fxeInt2 = sessao1.getFxe();
+							String fxeString2 = null;;
+							if(fxeInt2 == 1) fxeString2 = "L";
+							if(fxeInt2 == 2) fxeString2 = "10";
+							if(fxeInt2 == 3) fxeString2 = "12";
+							if(fxeInt2 == 4) fxeString2 = "16";
+							if(fxeInt2 == 5) fxeString2 = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme2.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString2
+								+ "<br>DuraÁ„o: " 
+								+ filme2.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 02"/></li>
 							<li><input type="submit" name="operacao" value="Excluir Sala 02" data-toggle="modal" data-target="#myModal" /></li>
@@ -66,11 +183,52 @@
 					</div>
 				</section>
 				<section class="feature left">
-					<a href="#" class="image icon solid "><img src="images/pic03.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 03</h3>
-						<p>O Senhor dos Aneis: O Retorno do Rei<br>Fantasia/Aventura ‚Äß 04:11 ‚Äß Faixa Et√°ria: 14 <br>Sess√µes
-							- 12:00, 16:30, 21:00</p>
+						<%
+							Integer aux3 = null;
+							Filme filme3 = (Filme) entidadeFilme;
+							Sala sala3 = (Sala) entidadeSala;
+							Sessao sessao3 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 3) {
+									aux3 = sala.getId();
+									sala3 = sala;
+								}
+							}
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux3) {
+									sessao3 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao3.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme3 = filme;
+								}
+							}
+							
+							Integer fxeInt3 = sessao1.getFxe();
+							String fxeString3 = null;;
+							if(fxeInt3 == 1) fxeString3 = "L";
+							if(fxeInt3 == 2) fxeString3 = "10";
+							if(fxeInt3 == 3) fxeString3 = "12";
+							if(fxeInt3 == 4) fxeString3 = "16";
+							if(fxeInt3 == 5) fxeString3 = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme3.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString3
+								+ "<br>DuraÁ„o: " 
+								+ filme3.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 03"/></li>
 							<li><input type="submit" name="operacao" value="Excluir Sala 03" data-toggle="modal" data-target="#myModal" /></li>
@@ -78,11 +236,59 @@
 					</div>
 				</section>
 				<section class="feature right">
-					<a href="#" class="image icon solid "><img src="images/pic4.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 04</h3>
-						<p>O Hobbit: Uma Jornada Inesperada<br>Fantasia/Aventura ‚Äß 03:o2 ‚Äß Faixa Et√°ria: 12 <br>Sess√µes -
-							13:00, 16:30, 20:00</p>
+						<%
+							Integer aux4 = null;
+							Filme filme4 = (Filme) entidadeFilme;
+							Sala sala4 = (Sala) entidadeSala;
+							Sessao sessao4 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 4) {
+									aux4 = sala.getId();
+									sala4 = sala;
+								}
+							}
+							if(aux4 == null){
+								out.print("<p>TÌtulo do filme: Nada cadastrado" 
+										+ "<br>Faixa et·ria: Nada cadastrado" 
+										+ "<br>DuraÁ„o: Nada cadastrado" 
+										+ "<br>Hor·rio: Nada cadastrado");
+							}
+							
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux4) {
+									sessao4 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao4.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme4 = filme;
+								}
+							}
+							
+							Integer fxeInt4 = sessao1.getFxe();
+							String fxeString4 = null;
+							if(fxeInt4 == 1) fxeString4 = "L";
+							if(fxeInt4 == 2) fxeString4 = "10";
+							if(fxeInt4 == 3) fxeString4 = "12";
+							if(fxeInt4 == 4) fxeString4 = "16";
+							if(fxeInt4 == 5) fxeString4 = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme4.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString4
+								+ "<br>DuraÁ„o: " 
+								+ filme4.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 04"/></li>
 							<li><input type="submit" name="operacao" value="Excluir Sala 04" data-toggle="modal" data-target="#myModal" /></li>
@@ -90,11 +296,52 @@
 					</div>
 				</section>
 				<section class="feature left">
-					<a href="#" class="image icon solid "><img src="images/pic5.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 05</h3>
-						<p>O Hobbit: A Desola√ß√£o de Smaug<br>Fantasia/Aventura ‚Äß 03:o7 ‚Äß Faixa Et√°ria: 12 <br>Sess√µes -
-							12:00, 16:30, 21:00</p>
+						<%
+							Integer aux5 = null;
+							Filme filme5 = (Filme) entidadeFilme;
+							Sala sala5 = (Sala) entidadeSala;
+							Sessao sessao5 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 5) {
+									aux5 = sala.getId();
+									sala5 = sala;
+								}
+							}
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux5) {
+									sessao5 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao5.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme5 = filme;
+								}
+							}
+							
+							Integer fxeInt5 = sessao1.getFxe();
+							String fxeString5 = null;;
+							if(fxeInt5 == 1) fxeString5 = "L";
+							if(fxeInt5 == 2) fxeString5 = "10";
+							if(fxeInt5 == 3) fxeString5 = "12";
+							if(fxeInt5 == 4) fxeString5 = "16";
+							if(fxeInt5 == 5) fxeString5 = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme5.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString5
+								+ "<br>DuraÁ„o: " 
+								+ filme5.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
 							<li><input type="submit" name="operacao" value="Editar Sala 05"/></li>
 							<li><input type="submit" name="operacao" value="Excluir Sala 05" data-toggle="modal" data-target="#myModal" /></li>
@@ -102,25 +349,65 @@
 					</div>
 				</section>
 				<section class="feature right">
-					<a href="#" class="image icon solid "><img src="images/pic6.jpg" alt="" /></a>
 					<div class="content">
 						<h3>Sala 06</h3>
-						<p>O Hobbit: A Batalha dos Cinco Exercitos<br>Fantasia/Aventura ‚Äß 02:44 ‚Äß Faixa Et√°ria: 12
-							<br>Sess√µes - 12:00, 16:30, 21:00</p>
+						<%
+							Integer aux6 = null;
+							Filme filme6 = (Filme) entidadeFilme;
+							Sala sala6 = (Sala) entidadeSala;
+							Sessao sessao6 = (Sessao) entidadeSessao;
+							for(int i = 0; i<listSala.size(); i++){
+								sala = (Sala) listSala.get(i);
+								Integer numSala = Integer.parseInt(sala.getCodigo());
+								if(numSala == 6) {
+									aux6 = sala.getId();
+									sala6 = sala;
+								}
+							}
+							for(int i = 0; i<listSessao.size(); i++){
+								sessao = (Sessao) listSessao.get(i);
+								Integer numSala = (sessao.getSalaId());
+								if(numSala == aux6) {
+									sessao6 = sessao;
+								}
+							}
+							for(int i = 0; i<listFilme.size(); i++){
+								filme = (Filme) listFilme.get(i);
+								Integer numFilme = (sessao6.getFilmeId());
+								if(numFilme == filme.getId()) {
+									filme6 = filme;
+								}
+							}
+							
+							Integer fxeInt6 = sessao1.getFxe();
+							String fxeString6 = null;;
+							if(fxeInt6 == 1) fxeString6 = "L";
+							if(fxeInt6 == 2) fxeString6 = "10";
+							if(fxeInt6 == 3) fxeString6 = "12";
+							if(fxeInt6 == 4) fxeString6 = "16";
+							if(fxeInt6 == 5) fxeString6 = "18";
+
+							out.print("<p>TÌtulo do filme: " 
+								+ filme6.getTitulo() 
+								+ "<br>Faixa et·ria: " 
+								+ fxeString6
+								+ "<br>DuraÁ„o: " 
+								+ filme6.getDuracao()
+								+ "<br>Hor·rio: 19:00");
+						%>
 						<ul class="actions special">
-							<li><input type="submit" name="operacao" value="Editar Sala 06"/></li>
-							<li><input type="submit" name="operacao" value="Excluir Sala 06" data-toggle="modal" data-target="#myModal" /></li>
+							<li><input type="button" name="operacao" value="Editar Sala 06"/></li>
+							<li><input type="button" name="operacao" value="Excluir Sala 06"/></li>
 						</ul>
 					</div>
 				</section>
 			</form>
-			<!--Modal-->
+			<!--Modal
 			<div class="container">
-				<!-- Modal -->
+
 				<div class="modal fade" id="myModal" role="dialog">
 					<div class="modal-dialog">
 
-						<!-- Modal content-->
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -136,7 +423,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
+			
 		</div>
 
 	</div>
